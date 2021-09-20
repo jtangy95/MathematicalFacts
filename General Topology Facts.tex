@@ -1,0 +1,1339 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\geometry{
+	a4paper,
+	left=20mm,
+	right=20mm,
+	top=25mm,
+	bottom=20mm
+}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdfpagemode=FullScreen,
+    }
+\renewcommand{\theenumi}{\roman{enumi}}
+
+\newcommand{\sq}{$\square$}
+\newcommand{\rmk}{$\surd$}
+\newcommand{\sptwo}{\hspace{0.2cm}}
+\newcommand{\spone}{\hspace{0.1cm}}
+\newcommand{\Nat}{\mathbb{N}}
+\newcommand{\Real}{\mathbb{R}}
+\newcommand{\U}{\mathcal{U}}
+\newcommand{\V}{\mathcal{V}}
+\newcommand{\A}{\mathcal{A}}
+\newcommand{\B}{\mathcal{B}}
+\newcommand{\C}{\mathcal{C}}
+\newcommand{\open}{\underset{open}{\subset}}
+\newcommand{\closed}{\underset{closed}{\subset}}
+\newcommand{\subsp}{\underset{subsp}{\subset}}
+\newcommand{\seq}{\underset{seq}{\subset}}
+\newcommand{\cl}{\overline}
+\newcommand{\diff}{\spone\backslash\spone}
+\newcommand{\exist}{\exists\spone}
+\newcommand{\homeo}{\underset{Homeo}{\simeq}}
+
+
+
+
+\begin{document}
+
+
+\begin{titlepage}
+	\begin{center}
+		\vspace*{5cm}
+		\textbf{\Large General Topology Facts}
+		\\	
+		\vspace{1.5cm}
+		\textbf{Taeyoung Chang}
+		\vfill
+		Textbook : J. Munkres $\ulcorner$ Topology $\lrcorner$ 2nd edition
+		\\
+		\vspace{0.8cm}
+		Last Update : \today
+		\vspace*{3cm}
+		\thispagestyle{empty}
+	\end{center}
+\end{titlepage}
+\tableofcontents
+\clearpage
+	
+\section{Elementary facts about Set theory}
+\smallskip
+\begin{itemize}
+	\item Elementary facts about preimage and image
+	\begin{itemize}
+		\item let $f: X\rightarrow Y$ and $A\subset X, B\subset Y$.
+		\begin{enumerate}
+			\item $A\subset f^{-1}(f(A))$ \quad If f is injection, equality holds.
+			\item $f(f^{-1}(B))\subset B$ \quad If f is surjection, equality holds.
+			\item Taking preimage preserves inclusion, union, intersection and difference.
+			\item Taking image preserves inclusion and union. If the mapping is injective, then taking image also preserves intersection and difference.
+			\item If $f$ is invertible map, then $(f^{-1})^{-1}(A)=f(A)$ and $f^{-1}(B)=f^{-1}(B)$ where LHS is preimage of $B$ under $f$ while RHS is image of $B$ under $f^{-1}$
+		\end{enumerate}
+	\end{itemize}
+	\item[*] Equivalence relation and Equivalence class
+	\begin{itemize}
+		\item An equivalence relation $\sim$ on a set $A$ is a relation having the following properties
+		\begin{enumerate}
+			\item (Reflexivity) $x\sim x$ for every $x\in A$
+			\item (Symmetry) $x\sim y \Rightarrow y\sim x$
+			\item (Transitivity) $x\sim y$ and $y\sim z \Rightarrow x\sim z$
+		\end{enumerate}
+		\item An equivalence class on $A$ determined by $x \in A$ is given as $E=\{a \spone |\spone a\sim x\}$
+	\end{itemize}
+	\item Two equivalence classes are either disjoint or equal
+	\item[*] Partition
+	\begin{itemize}
+		\item A partition of a set $A$ is a collection of disjoint nonempty subsets of $A$\\ whose union is $A$
+	\end{itemize}
+	\item Equivalence classes forms a partition
+	\item A partition is derived from a unique equivalence relation.
+	\item[*] (Simple) Order relation
+	\begin{itemize}
+		\item A (simple) order relation $<$ on a set $A$ is a relation having the following properties
+		\begin{enumerate}
+			\item (Comparability) $x \neq y \Rightarrow$ either $x<y$ or $y<x$
+			\item (Nonreflexivity) There is no $x$ s.t. $x<x$
+			\item (Transitivity) $x<y$ and $y<z \Rightarrow x<z$
+		\end{enumerate}
+	\end{itemize}
+	\item Well-ordering property
+	\begin{itemize}
+		\item Every nonempty subset of $\Nat$ has a smallest element 
+	\end{itemize}
+	\item Strong induction principle
+	\begin{itemize}
+		\item $A$ : a set of positive integers. Suppose that for each $n \in \Nat$, $\{1,2,\cdots,n-1\}\subset A$ implies $n\in A$. Then $A=\Nat$
+	\end{itemize}
+	\item[*] $\omega$-tuple and sequence
+	\begin{itemize}
+		\item $\omega$-tuple of elements of a set $X$ is a function $\textbf{x} : \Nat \rightarrow X$, which is also called as a sequence in $X$
+		\item $X^{\omega}$ is a set of all $\omega$-tuples of elements of $X$
+	\end{itemize}
+	\item Elementary facts about countability
+	\begin{enumerate}
+		\item A subset of countable set is countable
+		\item $\Nat \times \Nat$ is countably infinite
+		\item A countable union of countable sets is countable.
+		\item A finite product of countable sets is countable
+		\item A countable products of countable sets need not be countable
+		\begin{itemize}
+			\item $\{0,1\}^\omega$ is uncountable
+		\end{itemize}
+	\end{enumerate}
+	\item For a set $A$, there is no surjection from $A$ to $\mathcal{P}(A)$
+	\item[*] Well orderedness
+	\begin{itemize}
+		\item A set $A$ with an order relation $<$ is said to be well-ordered if every nonempty subset of $A$ has a smallest element.
+	\end{itemize}
+	\item Well-ordering principle
+	\begin{itemize}
+		\item For a set A, $\exists$ an order relation on A that is well-ordering.
+	\end{itemize}
+	\item[*] Strict partial order
+	\begin{itemize}
+		\item A strict partial order $\prec$ on a set $A$ is a relation having the following properties
+		\begin{enumerate}
+			\item (Nonreflexivity) $a\prec a$ never holds
+			\item (Transitivity) $a \prec b$ and $b \prec c \Rightarrow a\prec c$
+		\end{enumerate}
+	\end{itemize}
+	\item[\sq] A typical example of this relation is given by ``is a proper subset of".
+	\item The maximum principle
+	\begin{itemize}
+		\item If $A$ is a set equipped with a strict partial order $\prec$, \\then $\exists$ a maximal simply ordered subset $B$ of $A$
+	\end{itemize}
+	\item[*] Upper bound and maximal element
+	\begin{itemize}
+		\item $A$ : a set equipped with a strict partial order $\prec$. If $B\subset A$ then an uppber bound on $B$ is $c\in A$ s.t. $\forall b\in B$, either $b=c$ or $b\prec c$.
+		\item A maximal element of $A$ is $m\in A$ s.t. $m\prec a$ does not hold $\forall \spone a\in A$
+	\end{itemize}
+	\item Zorn's Lemma
+	\begin{itemize}
+		\item $A$ : a set equipped with a strict partial order $\prec$. If every simply ordered subset of $A$ has an upper bound in $A$, then $A$ has a maximal element. 
+	\end{itemize}
+	\item Taking advantage of Zorn's lemma, we can prove that every vector space has a basis.
+\end{itemize}
+\clearpage
+	
+\section{Topological spaces \& Continuous functions}
+\bigskip
+\subsection{Topological Spaces}
+\smallskip
+\begin{itemize}
+	\item[*]Topology $\mathcal{T}$
+	\begin{itemize}
+		\item A topology $\mathcal{T}$ on a set $X$ is a collection of subsets of $X$ having the following properties
+		\begin{enumerate}
+			\item $\mathcal{T}$ contains $\phi$ and $X$.
+			\item $\mathcal{T}$ is closed under taking arbitrary union.
+			\item $\mathcal{T}$ is closed under taking finite intersection.
+		\end{enumerate}
+	\end{itemize}
+	\item[*]Finer, coarser and comparable topologies
+	\begin{itemize}
+		\item For two topologies $\mathcal{T}$ and $\mathcal{S}$ on a given set $X$,\\ $\mathcal{T}$ is said to be finer than $\mathcal{S}$ if $\mathcal{S}\subset \mathcal{T}$, and coarser if $\mathcal{T}\subset \mathcal{S}$. 
+		\item $\mathcal{T}$ and $\mathcal{S}$ are said to be comparable if either $\mathcal{T}\subset \mathcal{S}$ or $\mathcal{S} \subset \mathcal{T}$
+	\end{itemize}
+\end{itemize}
+\bigskip	
+
+\subsection{Basis for a Topology}
+\smallskip
+\begin{itemize}
+	\item [*] A basis for a topology
+	\begin{itemize}
+		\item $X$ : a set. A basis $\mathcal{B}$ for a topology on $X$ is a collection of subsets of X s.t.
+		\begin{enumerate}
+			\item For each $x\in X$, $\exists \spone B\in \mathcal{B}$ s.t.$x\in B$
+			\item If $x\in B_1\cap B_2$ where $B_1, B_2\in \mathcal{B}$, then $\exists \spone B_3\in\mathcal{B}$ s.t. $x\in B_3\subset B_1\cap B_2$
+		\end{enumerate}
+	\end{itemize}
+	\item[*] A topology generated by basis
+	\begin{itemize}
+		\item $X$ : a set. $\mathcal{B}$ : A basis on X. The topology $\mathcal{T}$ generated by the basis $\mathcal{B}$ is given as :\quad
+		Declare $\mathcal{U}\subset X$ to be open if $\forall x\in \mathcal{U}, \sptwo \exists \spone B\in \mathcal{B}$ s.t. $x\in B\subset \mathcal{U}$
+		\item It can be denoted as $\mathcal{B}\rightsquigarrow\mathcal{T}$
+	\end{itemize}
+	\item[\sq] All basis elements generating a topology are open in the topology.
+	\item Any open set can be represented as union of basis elements
+	\item How to obtain the basis from given topology
+	\begin{itemize}
+		\item $(X, \mathcal{T})$ : a topological space. $\mathcal{C}$ : a collection of open sets. \sptwo If for each $\mathcal{U}\open X$ and $x\in \mathcal{U}$, $\exists \spone C\in \mathcal{C}$ s.t. $x\in C \subset\mathcal{U}$, then $\mathcal{C}$ is a basis generating $\mathcal{T}$
+	\end{itemize}
+	\item How to compare two topologies using bases
+	\begin{itemize}
+		\item $\mathcal{T}, \mathcal{S}$ : two topologies on X. $\sptwo \mathcal{B}\rightsquigarrow \mathcal{T}$ and $\mathcal{C} \rightsquigarrow \mathcal{S}$.  Then $\mathcal{S}$ is finer than $\mathcal{T}\newline \Leftrightarrow \sptwo \forall x\in X$ and $\forall B\in \mathcal{B}$ containing $x$, $\exists \spone C\in \mathcal{C}$ s.t. $x\in C\subset B$
+	\end{itemize}
+	\item[\sq] Larger basis generates finer topology. \sptwo i.e. \sptwo
+	If $\mathcal{B}\subset\mathcal{C}$ and $\mathcal{B}\rightsquigarrow\mathcal{T}, \mathcal{C}\rightsquigarrow\mathcal{S}$ then $\mathcal{T}\subset\mathcal{S}$
+	\item[(Ex)] The topology on $\Real$ generated by a basis $\mathcal{B}=\{$All bounded open intervals$\}$ is called a standard topology on $\Real$ 
+	\item[*] A subbasis for a topology
+	\begin{itemize}
+		\item $X$ : a set. A subbasis $\mathcal{S}$ for a topology on $X$ is a collection of subsets of $X$ whose union covers $X$
+		\item The topology generated by subbasis $\mathcal{S}$ is given as below : \\ Declare $\mathcal{U}$ to be open if $\mathcal{U}$ is union of finite intersection of subbasis elements.
+	\end{itemize}
+	\item For a topology generated by a subbasis, basis generating the topology is given by a collection of all finite intersections of subbasis elements. 
+	\item[\sq] All subbasis elements generating a topology are open in the topology.
+	\item If a basis $\mathcal{B}$ generates a topology $\mathcal{T}$ then $\mathcal{T}$ is a smallest topology containing every element of $\mathcal{B}$ as open sets. \quad \#\ 13.5
+	\item If a subbasis $\mathcal{S}$ generates a topology $\mathcal{T}$ then $\mathcal{T}$ is a smallest topology containing every element of $\mathcal{S}$ as open sets. \quad \#\ 13.5
+	\item A basis $\mathcal{B}_\mathbb{Q}=\{(a,b) : a<b, a,b\in \mathbb{Q}\}$ generates the standard topology on $\Real$, which means a standard topology on $\Real$ can be generated by a countable basis. \quad \#\ 13.8
+\end{itemize}
+\bigskip
+
+\subsection{The Order Topology}	
+\smallskip
+\begin{itemize}
+	\item[*]Order topology
+	\begin{itemize}
+		\item $X$ : a simply ordered set. An order topology on $X$ is generated by a basis $\mathcal{B}$ given as the following:
+		 $\mathcal{B}=\{(a,b):  a,b\in X\}\cup\{[a_0,b): b\in X\}\cup\{(a,b_0]: a\in X\}$
+		\\where $a_0, b_0$ are the smallest / largest element of $X$ resp. if exist.
+		\item[(Ex)] The order topology on $\Real$ is the standard topology.
+		\item[(Ex)] The order topology on $\Nat$ is the discrete topology.
+	\end{itemize}
+	\item The collection of open rays forms a subbasis generating order topology.
+\end{itemize}	
+\bigskip
+
+\subsection{Product Topology}
+\smallskip
+\begin{itemize}
+	\item[*] Product topology
+	\begin{itemize}
+		\item $X,Y$ : topological spaces. The product topology on $X\times Y$ is generated by a basis  $\mathcal{B}=\{\mathcal{U}\times\mathcal{V}: \mathcal{U}\open X,\spone \mathcal{V}\open Y\}$
+		\item[$\surd$]Note that $\mathcal{B}$ itself is not a topology since it is not closed under taking union.
+	\end{itemize}
+	\item If $\mathcal{B}\rightsquigarrow\mathcal{T}_X$ and $\mathcal{C}\rightsquigarrow\mathcal{T}_Y$ then $\mathcal{D}=\{B\times C : B\in \mathcal{B},\spone C\in \mathcal{C}\}$ is a basis for a product topology $\mathcal{T}_{X\times Y}$ on $X\times Y$
+	\item[*] Projection map
+	\begin{itemize}
+		\item $\pi_1 : X\times Y\rightarrow X$ given by $(x,y) \mapsto x$ \sptwo and \sptwo  $\pi_2 : X\times Y\rightarrow Y$ given by $(x,y) \mapsto y$ \\$\pi_1$ and $\pi_2$ are called as projections.
+	\end{itemize}
+	\item[*] Open map and closed map
+	\begin{itemize}
+		\item A map $f : X\rightarrow Y$ is said to be an open map if $\mathcal{U}\open X \Rightarrow f(\mathcal{U})\open Y$
+		\item A map $g : X\rightarrow Y$ is said to be a closed map if $\mathcal{F}\closed X \Rightarrow g(\mathcal{F})\closed Y$
+	\end{itemize}
+	\item Projection maps $\pi_1$ and $\pi_2$ are open maps	\quad \#\ 16.4
+	\item $\mathcal{S}=\{\pi_1^{-1}(\mathcal{U}):\mathcal{U}\open X\}\cup \{\pi_2^{-1}(\mathcal{V}):\mathcal{V}\open Y\}$ is a subbasis generating a product topology on $X\times Y$
+\end{itemize}
+\bigskip
+
+\subsection{Subspace Topology}
+\smallskip
+\begin{itemize}
+	\item[*] Subspace topology
+	\begin{itemize}
+		\item $(X,\mathcal{T}), \spone Y\subset X$. The subspace topology on $Y$ inherited from $X$ is given as \\ $\mathcal{T}_Y=\{\mathcal{U}\cap Y : \sptwo \mathcal{U}\open X\}$. It is often denoted as $Y\subsp X$
+	\end{itemize}
+	\item $(X,\mathcal{T}), \spone Y\subset X$. If a basis $\mathcal{B}\rightsquigarrow \mathcal{T}$ then a basis $\mathcal{B}_Y=\{B\cap Y : \sptwo B\in \mathcal{B}\}$ generates \\ a subspace topology on $Y$
+	\item $(X,\mathcal{T}), \spone Y\subset X$. If a subbasis $\mathcal{S}\rightsquigarrow \mathcal{T}$ then a subbasis $\mathcal{S}_Y=\{S\cap Y : \sptwo S\in \mathcal{S}\}$ generates \\ a subspace topology on $Y$
+	\item $Y\subsp X$. If $\mathcal{U}\open Y$ and $Y\open X$ then $\mathcal{U}\open X$
+	\item Compatibility of subspace topology and product topology
+	\begin{itemize}
+		\item $X,Y$ : topological spaces. $A\subset X,\sptwo B\subset Y$. Consider two topologies on $A\times B$
+		\begin{enumerate}
+			\item Equip $A, B$ with subspace topology and then take their product topology.
+			\item Take subspace topology inherited from the product topology on $X\times Y$
+		\end{enumerate}
+		Then those two topologies are the same.
+	\end{itemize}
+	\item[*] Convex subset of ordered set
+	\begin{itemize}
+		\item $X$ : an ordered set. $A\subset X$. $A$ is said to be convex if $\forall \spone a,b\in A$ s.t. $a<b$, $(a,b)\subset A$
+	\end{itemize}
+	\item Compatibility of subspace topology and order topology
+	\begin{itemize}
+		\item $X$ : an ordered set. $A\subset X$ convex. Then the order topology on $A$ is same as the subspace topology on $A$ inherited from $X$
+	\end{itemize}
+	\item $Y\subsp X$ and $A\subset Y$. Then the topology on $A$ inherited as a subspace of $Y$ is the same as the topology inherited as a subspace of $X$ \quad \#\ 16.1
+\end{itemize}
+
+\bigskip
+\subsection{Closed Sets and Limit points \& Hausdorff space}
+\smallskip
+\begin{itemize}
+	\item[*] Closed sets : $A\subset X$ where $X$ is topological space. $A$ is closed if $X\diff A$ is open
+	\item Closedness is dual of openness
+	\begin{itemize}
+		\item For a topological space $X$
+		\begin{enumerate}
+			\item $\phi$ and $X$ are closed.
+			\item Arbitrary intersection of closed sets is closed.
+			\item Finite union of closed sets is closed.
+		\end{enumerate}
+	\end{itemize}
+	\item Closedness and subspace topology
+	\begin{itemize}
+		\item For a topological space $X$ and $Y\subsp X$
+		\begin{enumerate}
+			\item $A\closed Y$ iff $A=C\cap Y$ for some $C\closed X$
+			\item $A\closed Y$ and $Y\closed X \Rightarrow A\closed X$
+		\end{enumerate}
+	\end{itemize}
+	\item Closedness and product topology \quad \#\ 17.3
+	\begin{itemize}
+		\item For topological spaces $X, Y$, if $A\closed X$ and $B\closed Y$ then $A\times B \closed X\times Y$
+	\end{itemize}
+	\item[*] Closure and interior
+	\begin{itemize}
+		\item $X$: a topological space. $A\subset X$. Closure $\overline{A}$ is the smallest closed set containing A. Interior $A^0$ is the largest open set contained in A
+	\end{itemize}
+	\item $Y\subsp X$ and $A\subset Y$. Then $\overline{A}^{Y}=\overline{A}^{X}\cap Y$. \sptwo i.e. \sptwo Taking closure in subspace is equivalent with taking closure in ambient space and then taking intersection with subspace.
+	\item Pointwise description of the closure
+	\begin{itemize}
+		\item $(X,\mathcal{T}),\sptwo  A\subset X, \sptwo \mathcal{B}\rightsquigarrow \mathcal{T}$. Then $x\in \overline{A} \Leftrightarrow$ every neighborhood of $x$ intersects $A$ \\$\Leftrightarrow$ every basis element containing $x$ intersects $A$
+	\end{itemize}
+	\item[*] Limit point
+	\begin{itemize}
+		\item $X$: a topological space. $A\subset X$. $x$ is said to be a limit point of $A$ if any neighborhood of $x$ intersects $A$ in some points other than $x$. Often $A'$ denotes a sets of all limit points of $A$
+	\end{itemize}
+	\item $X$: a topological space. $A\subset X$. $\Rightarrow \sptwo \overline{A}=A\cup A'$
+	\item $X$: a topological space. $A\subset X$. Then $A\closed X \Leftrightarrow A'\subset A$
+	\item Elementary properties of the closure	\quad \#\ 17.6, 17.8, 17.9
+	\begin{enumerate}
+		\item $A\subset B \Rightarrow \cl{A} \subset \cl{B}$
+		\item $\cl{A\cup B}=\cl{A}\cup \cl{B}$
+		\item $\bigcup_{\alpha\in I}\cl{A_\alpha}\subset \cl{\bigcup_{\alpha\in I}A_\alpha} $ where $I$ is an arbitary index set.
+		\item $\cl{A\cap B}\subset \cl{A}\cap \cl{B}$
+		\item $\cl{\bigcap_{\alpha\in I}A_\alpha}\subset \bigcap_{\alpha\in I}\cl{A_\alpha} $ where $I$ is an arbitary index set.
+		\item $\cl{A}\diff\cl{B}\subset \cl{A\diff B}$
+		\item $\cl{A\times B}=\cl{A}\times \cl{B}$
+	\end{enumerate}
+	\item Relationship between closure, interior and boundary \quad \#\ 17.19	
+	\begin{itemize}
+		\item For a topological space $X$ and $A\subset X$, the boundary of $A$ is defined as $\partial{A}=\cl{A}\,\cap\,\cl{X\backslash A}$
+		\begin{enumerate}
+			\item $A^0\cap \partial{A}=\phi$ and $\cl{A}=A^0\cup \partial{A}$ \\ i.e. \spone closure is a disjoint union of interior and boundary.
+			\item $\cl{X\diff A}=X\diff A^0$
+			\item $\partial{A}=\phi$ iff $A$ is open and closed.
+			\item $A$ is open iff $\partial{A}=\cl{A}\diff A$ 
+		\end{enumerate}
+	\end{itemize}
+	\item[*] $T_1$ space
+	\begin{itemize}
+		\item A topological space satisfying ``every one point set is closed'' or equivalently ``every finite set is closed'' is $T_1$ space.
+	\end{itemize}
+	\item Equivalent condition for $T_1$ axiom	\quad \#\ 17.15
+	\begin{itemize}
+		\item A topological space $X$ is $T_1$ space iff $\forall \spone x,y\in X$ s.t. $x\neq y$, $\exists \spone$ neighborhood $\mathcal{U}, \mathcal{V}$ of $x,y$ s.t. $x\notin \mathcal{V}$ and $y\notin \mathcal{U}$ \sptwo i.e.\sptwo  any two distinct points have neighborhoods not containing the other.
+	\end{itemize}
+	\item[*] Convergence of sequence
+	\begin{itemize}
+		\item $X$: a topological space. $\{x_n\}\seq X$ and $x\in X$. It is said that $\{x_n\}$ converges to $x$ if $\forall$ neighborhood $\mathcal{U}$ of x, $\exists \spone N\in \Nat$ s.t. $x_n\in \mathcal{U} \sptwo \forall n\geq N$
+	\end{itemize}
+	\item Closure of set and convergence of sequence
+	\begin{itemize}
+		\item $X$ : a topological space. $A\subset X$. If $\exist \{x_n\}\seq A$ s.t. $x_n\rightarrow x$ then $x\in \cl{A}$
+	\end{itemize}
+	\item[*] Hausdorff space\spone($T_2$ space)
+	\begin{itemize}
+		\item A topological space $X$ is called as Hausdorff space( or $T_2$ space) if \spone $\forall\spone x,y\in X$ s.t. $x\neq y$, $\exists \spone$ disjoint neighborhood $\mathcal{U}, \mathcal{V}$ of $x, y$ \\i.e. \spone any two distinct points are separated out by disjoint neighborhoods.
+	\end{itemize}
+	\item $T_2$ condition is stronger than $T_1$ condition. 
+	\item $X$ : $T_1$ space. $A\subset X$. Then $x\in A' \Leftrightarrow $ any neighborhood of $x$ contains infinitely many points of $A$.
+	\item $X$: Hausdorff space. Then a sequence in $X$ converges to at most one point. 
+	\item Elementary properties of Hausdorff space
+	\begin{enumerate}
+		\item Every ordered set equipped with order topology is Hausdorff
+		\item The product of two Hausdorff spaces is Hausdorff
+		\item Every subspace of a Hausdorff space is Hausdorff 
+	\end{enumerate}
+\end{itemize}
+
+
+\clearpage
+\subsection{Continuous Functions \& Homeomorphism}
+\smallskip
+\begin{itemize}
+	\item[*] $X, Y$ : topological spaces. For a map $f : X\rightarrow Y$, $f$ is said to be continuous\\ if $f^{-1}(\mathcal{V})\open X$ whenever $V\open Y$
+	\item[\sq] To check whether $f : X\rightarrow Y$ is continuous, it suffices to show one of the followings.
+	\begin{enumerate}
+		\item Preimage of every basis element of topology on $Y$ is open in $X$
+		\item Preimage of every subbasis element of topology on $Y$ is open in $X$ 
+	\end{enumerate}
+	\item Equivalent conditions with continuity
+	\begin{itemize}
+		\item $X, Y$ : topological spaces. For a map $f : X\rightarrow Y$, the followings are equivalent
+		\begin{enumerate}
+			\item $f^{-1}(\mathcal{V})\open X$ whenever $V\open Y$ \quad i.e. \sptwo $f$ is continuous
+			\item $f^{-1}(\mathcal{B})\closed X$ whenever $B\closed Y$
+			\item $f(\cl{A})\subset \cl{f(A)} \quad \forall A\subset X$
+			\item For each $x\in X$ and a neighborhood $\mathcal{V}$ of $f(x)\in Y$, $\exist$ a neighborhood $\mathcal{U}$ of $x$ s.t. $f(\mathcal{U})\subset \mathcal{V}$
+		\end{enumerate}
+	\end{itemize}
+	\item[$\surd$] $f : X\rightarrow Y$ continuous implies that $x\in \cl{A} \Rightarrow f(x)\in \cl{f(A)}$ \quad on the other hand,\\
+	$f : X\rightarrow Y$ continuous does not guarantee that $x\in A' \Rightarrow f(x)\in \{f(A)\}'$\quad \#\ 18.2
+	\item Continuity and convergent sequence
+	\begin{itemize}
+		\item $f : X\rightarrow Y$. \sptwo If $f$ is continuous then $x_n\rightarrow x \sptwo \Rightarrow \sptwo f(x_n)\rightarrow f(x) \quad \forall \spone \{x_n\}\seq X$ 
+	\end{itemize}
+	\item Rules for constructing continuous functions
+	\begin{enumerate}
+		\item Constant function is continuous.
+		\item If $A\subsp X$, then the inclusion function $i: A\rightarrow X$ is continuous. Indeed, the definition of subspace topology is designed to make inclusion function continuous.
+		\item Projection mapping $\pi_1 : X\times Y\rightarrow X$ or $\pi_2 : X\times Y \rightarrow Y$ is continuous. Indeed, the definition of product topology is designed to make projection map continuous.
+		\item Composites of two continuous functions are continuous.
+		\item Restricting the domain preserves continuity \sptwo i.e. \spone if $f : X\rightarrow Y$ continuous and $A\subsp X$ then restricted function $f|_A : A\rightarrow Y$ is still continuous.
+		\item Restricting or expanding the target space preserves continuity. \sptwo i.e. \spone if $f : X\rightarrow Y$ continuous then restricted $f : X\rightarrow f(X)$ is also continuous and if $Y\subsp Z$ then expanded $f : X\rightarrow Z$ is also continuous.
+	\end{enumerate}
+	\item Local formulation of continuity
+	\begin{itemize}
+		\item If $X=\bigcup_{\alpha\in I}\mathcal{U}_\alpha$, \sptwo $\mathcal{U}_\alpha \open X \sptwo \forall \alpha\in I$, \sptwo and each $f_\alpha : \mathcal{U}_\alpha \rightarrow Y $ is continuous then $f : X\rightarrow Y$ defined by $f(x)=f_\alpha(x)I(x\in \mathcal{U}_\alpha)$ is continuous provided $f_\alpha=f_\beta$ on $\mathcal{U}_\alpha\cap \mathcal{U}_\beta$ \sptwo $\forall \alpha, \beta \in I$	
+	\end{itemize}
+\bigskip
+	\item The pasting lemma
+	\begin{itemize}
+		\item If $X=C_1 \,\cup \,C_2$ where $ \, C_1,C_2\closed X$, \sptwo and $f_1 : C_1 \rightarrow Y$ \& $f_2: C_2 \rightarrow Y$ are both continuous then $f : X\rightarrow Y$ defined by $f(x)=f_i(x)I(x\in C_i)$ \sptwo $\forall i=1,2$ \sptwo is continuous, provided $f_1=f_2$ on $C_1\cap C_2$
+	\end{itemize}
+	\item[(Ex)] $f, g : X\rightarrow Y$ both continuous. $Y$ is equipped with order topology.\\Then $\{x\in X : f(x)\leq g(x)\}, \{x\in X : f(x)\geq g(x)\} \closed X$ and $\max(f,g)$ and $\min(f,g)$ are also continuous. \quad \#\ 18.8
+	\item[(Ex)] $f : A\rightarrow Y$ continuous. $Y$ is Hausdorff. If $f$ may be extended to continuous function\\ $g$ : $\cl{A}\rightarrow Y$ then such $g$ is uniquely determined by $f$
+	\item[*] Homeomorphism
+	\begin{itemize}
+		\item $X,Y$ : topological spaces. $f : X\rightarrow Y$ is called as a homeomorphism if $f$ is bijection and both $f$ and $f^{-1}$ are continuous. In this case, we say $X$ and $Y$ are homeomorphic and denote it as $X\homeo Y$
+	\end{itemize}
+	\item[\sq] For a bijection $f : X\rightarrow Y$, $f$ is homeomorphism $\Leftrightarrow$ $\mathcal{U} \open X$ iff $f(\mathcal{U})\open Y$.
+	\item[\sq] For a bijection $f : X\rightarrow Y$ where $\mathcal{B} \rightsquigarrow \mathcal{T}_X$ and $\mathcal{C} \rightsquigarrow \mathcal{T}_Y$, if $f(B)\open Y \quad \forall B\in \mathcal{B}$ and $f^{-1}(C)\open X \quad \forall C\in \mathcal{C}$ then $f$ is homeomorphism.
+	\item[(Ex)] $(0,1) \homeo \Real$ with homeomorphism $f(x)= \frac{1}{1+e^{-x}}$ which is a standard logistic function
+	\\ $(0,1) \homeo (a,b)$ for any $a<b\in \Real$ with homeomorphism of linear transform \sptwo \# 18.5 \\ so that $(a,b) \homeo \Real$ for any $a<b\in \Real$
+	\item[$\surd$] $f : X\rightarrow Y$ bijection $\Rightarrow X, Y$ are essentially the same set. 
+	\\ $f : X\rightarrow Y$ isomorphism $\Rightarrow X, Y$ are essentially the same vector space.
+	\\ $f : X\rightarrow Y$ homeomorphism $\Rightarrow X, Y$ are essentially the same topological space.
+	\item[\rmk] A homeomorphism is simultaneously an open map and a closed map.
+	\item[$\surd$] If two spaces $X, Y$ are homeomorphic then $X$ and $Y$ have same topological properties, which are described in terms of open sets.
+	\item[*] Embedding
+	\begin{itemize}
+		\item $X, Y$ : topological spaces. $f : X\rightarrow Y$ is called as an embedding\\ if $f$ is injective and $X\homeo f(X)$
+	\end{itemize} 
+	\item[(Ex)] $f : X\rightarrow X\times Y$ defined by $x \mapsto (x, y_0)$ for some $y_0\in Y$ is an embedding so that $X\homeo X\times \{y_0\}$ \quad \# 18.4
+\end{itemize}
+
+\clearpage
+\subsection{The Product Topology : Infinite product}
+\smallskip
+\begin{itemize}
+	\item[*] $J$-tuple for arbitrary index set $J$ / Infinite Cartesian product
+	\begin{itemize}
+		\item $J$-tuple of elements of a set $X$ is a function $\textbf{x} : J \rightarrow X$,  also denoted as $\textbf{x}=(x_\alpha)_{\alpha\in J}$
+		\item $X^J$ is a set of all $J$-tuples of elements of X
+		\item[$\surd$] Given $J=\Real$,\sptwo  $X^J$ is $\{$ all functions shaped as $f: \Real \rightarrow X\}$
+		\item $\prod_{\alpha\in J}X_\alpha$ is defined as $\{(x_\alpha)_{\alpha\in J}\in X^J \sptwo where \spone X=\bigcup_{\alpha\in J}X_\alpha : x_\alpha \in X_\alpha \sptwo \forall \alpha\in J \}$
+	\end{itemize}
+	\item[*] Box topology and Product topology
+	\begin{itemize}
+		\item For a family of topological spaces $\{X_\alpha\}_{\alpha\in J}$, there are two types of topology we can impose on the product $\prod_{\alpha\in J}X_\alpha$
+		\begin{enumerate}
+			\item The box topology on $\prod_{\alpha\in J}X_\alpha$ is generated by a basis $\mathcal{B}=\{\prod_\alpha \mathcal{U}_\alpha : \mathcal{U}_\alpha \open X_\alpha \}$
+			\item The product topology on $\prod_{\alpha\in J}X_\alpha$ is generated by \\a subbasis $\mathcal{S}=\{\pi_\beta^{-1}(\mathcal{U}_B) : \mathcal{U}_\beta\open X_\beta \}$ where $\pi_\beta : \prod_{\alpha\in J}X_\alpha \rightarrow X_\beta$ \spone is projection
+		\end{enumerate}
+	\end{itemize}
+	\item Comparison of the box topology and the product topology
+	\begin{itemize}
+		\item On $\prod_{\alpha\in J}X_\alpha$, the box topology is generated by $\{\prod_\alpha \mathcal{U}_\alpha : \mathcal{U}_\alpha \open X_\alpha \}$ while the product topology is generated by $\{\prod_\alpha \mathcal{U}_\alpha : \mathcal{U}_\alpha \open X_\alpha$ and $\mathcal{U}_\alpha=X_\alpha$ except for finitely many values of $\alpha \}$
+		\item For finite product space $\prod_{i=1}^n X_i$, box topology and product topology are the same.
+		\item In general, the box topology is finer than the product topology
+	\end{itemize}
+	\item[\rmk] Projection map $\pi_\beta : \prod_{\alpha\in J}X_\alpha \rightarrow X_\beta$ is continuous by definition of product topology. In fact, projection map is also continuous when box topology is given. But the product topology is the smallest topology which makes projection mapping continuous. \\ In this sense of optimality, it is suggested that the box topology may declare too many open sets. 
+	\item[\rmk] Whenever we consider the product  $\prod_{\alpha}X_\alpha$, we shall assume it is equipped with the product topology unless we specifically state otherwise.
+	\item let $\{\mathcal{B}_\alpha\}$ be a basis for the topology on $X_\alpha$ for each $\alpha\in J$
+	\begin{enumerate}
+		\item $\{\prod_\alpha B_\alpha : B_\alpha \in \mathcal{B}_\alpha \}$ is a basis for box topology on  $\prod_{\alpha\in J}X_\alpha$
+		\item $\{\prod_\alpha B_\alpha : B_\alpha \in \mathcal{B}_\alpha$ for fin. many $\alpha's$ and $B_\alpha=X_\alpha$ for all remaining $\alpha's \}$ is a basis for product topology on $\prod_{\alpha\in J}X_\alpha$
+	\end{enumerate}
+
+	\item[(Ex)] Standard topology on $\Real^n$ generated by $\{\prod_{i=1}^n (a_i, b_i) : \forall \spone a_i, b_i \in \Real \}$
+	\item Properties of product space no matter which topology we use
+	\begin{enumerate}
+		\item Product topology and subspace topology are compatible
+		\item Product of Hausdorff spaces is Hausdorff space.
+		\item Product of closures is same as the closure of the product \sptwo i.e. \sptwo $\prod \cl{A_\alpha}= \cl{\prod A_\alpha}$
+	\end{enumerate}
+\bigskip
+	\item Componentwise continuity equivalent to continuity given product topology
+	\begin{itemize}
+		\item $f: X \rightarrow \prod Y_\alpha$ is given by $x\mapsto (f_\alpha(x))_{\alpha\in J}$ where $f_\alpha : X\rightarrow Y_\alpha$ for each $\alpha$
+		\begin{enumerate}
+			\item If $f$ is continuous then each component $f_\alpha$ is continuous given box topology or product topology on $\prod Y_\alpha$.
+			\item Given product topology on $\prod Y_\alpha$, if each component $f_\alpha$ is continuous then $f$ is continuous.
+		\end{enumerate}
+	\end{itemize}
+	\item[(Ex)] The switching map $s:X\times Y\rightarrow Y\times X \quad (x,y)\mapsto (y,x)$ is continuous \; \# Final Test
+	\item Compoenentwise convergence equivalent to convergence given product topology \sptwo \# 19.6
+	\begin{itemize}
+		\item $\{\textbf{x}_n\}\seq \prod_\alpha X_\alpha$ and $\textbf{x}\in \prod_\alpha X_\alpha$
+		\begin{enumerate}
+			\item If $\textbf{x}_n \rightarrow \textbf{x}$ then $\pi_\alpha(\textbf{x}_n)\rightarrow \pi_\alpha(\textbf{x})$ for each $\alpha$, given box topology or product topology on $\prod_\alpha X_\alpha$
+			\item Given product topology on $\prod_\alpha X_\alpha$, if each component $\pi_\alpha(\textbf{x}_n)\rightarrow \pi_\alpha(\textbf{x})$ then $\textbf{x}_n \rightarrow \textbf{x}$
+		\end{enumerate}
+	\end{itemize}
+	\item Componentwise linear transform is homeomorphism \quad \# 19.8
+	\begin{itemize}
+		\item $\{a_n\},\{b_n\}\seq \Real$ where $a_i>0 \sptwo \forall i\in \Nat$. $f: \Real^\omega \rightarrow \Real^\omega$ is defined as \\ $\{x_n\}\mapsto \{a_nx_n+b_n\} \sptwo \forall$ real sequence $\{x_n\}$. $f$ is homeomorphism of $\Real^\omega$ with itself. \\ This holds no matter $\Real^\omega$ is equipped with product topology or box topology.
+	\end{itemize} 	
+\end{itemize} 
+\bigskip
+
+\subsection{The Metric Topology}
+\smallskip
+\begin{itemize}
+	\item[*] A metric $d$ on a set $X$ is a function $d : X\times X\rightarrow \Real$ satisfying
+	\begin{enumerate}
+		\item (Positive definite) $d(x,y)\rightarrow 0 \sptwo \forall x,y \in X$ and $d(x,y)=0 \Leftrightarrow x=y$
+		\item (Symmetric) $d(x,y)=d(y,x) \sptwo \forall x,y\in X$
+		\item (Triangle Inequality) $d(x,y)+d(y,z)\geq d(x,z) \sptwo \forall x,y,z\in X$ 
+	\end{enumerate}
+	\item[*] $\epsilon$-ball centered at $x$ ; $B_d(x, \epsilon)$
+	\begin{itemize}
+		\item $B_d(x, \epsilon)=\{y\spone | \spone d(x,y)<\epsilon \}$
+	\end{itemize}
+	\item For any point inside the ball, there is a smaller ball centered at the point, contained in the given ball. \sptwo i.e. \sptwo $\forall y\in B_d(x,\epsilon), \exist \delta>0$ s.t. $B_d(y, \delta) \subset B_d(x,\epsilon)$
+	\item[*] Metric topology on $(X,d)$
+	\begin{itemize}
+		\item A metric topology on $(X,d)$ is generated by a basis $\mathcal{B}=\{B_d(x,\epsilon) : x\in X, \epsilon>0\}$
+	\end{itemize}
+	\item[*] Metric space and metrizability
+	\begin{itemize}
+		\item $(X,d)$ is a metric space if $X$ is equipped with the metric topology induced by $d$
+		\item $X$ is said to be metrizable if $\exist$ a metric $d$ on $X$ which induces a metric topology same with the one imposed on $X$. Obviously every metric space is metrizable.
+	\end{itemize}
+	\item[\rmk] Not every topological space is metrizable.
+	\item A space homeomorphic to metric space is metrizable
+	\begin{itemize}
+		\item If $(X,d)$ is a metric space and $X\homeo Y$ with homeomorphism $f:X\rightarrow Y$ then \\ $Y$ is metrizable with metric $\rho$ defined by $\rho(y,z)=d(g(y),g(z))$ where $g=f^{-1}$
+	\end{itemize} 
+	\item[(Ex)] A standard topology on $\Real$ is same with metric topology induced by metric $d(x,y)=|x-y|$
+	\item[(Ex)] A discrete topology on a set $X$ is metrizable by the metric $d(x,y)=1-I(x=y)$
+	\item[*] Boundedness and diameter
+	\begin{itemize}
+		\item $(X,d)$ : a metric space. $A\subset X$. For nonempty $A$, diameter of $A$ is defined as diam($A$)=$\sup\{d(a,b) : a,b\in A\}$. $A$ is said to be bounded if diam($A$)$<\infty$
+	\end{itemize}
+	\item Useful facts about diameter and closure
+	\begin{itemize}
+	    \item $(X,d)$ : a metric space. $A\subset X$. $\Rightarrow$ diam($A$)=diam($\cl{A}$) 
+	\end{itemize}
+	\item[*] Standard bounded metric
+	\begin{itemize}
+		\item $(X,d)$ : a metric space. $\overline{d} : X\times X\rightarrow \Real$ defined as $\overline{d}(x,y)=\min\{d(x,y),1\}$ is called as a standard bounded metric corresponding to $d$ 
+	\end{itemize} 
+	\item Collection of small balls is sufficient to generate a metric topology.
+	\begin{itemize}
+		\item For a metric space $(X,d)$, $\mathcal{B}_1=\{B_d(x,\epsilon): x\in X , 0<\epsilon<1\}$ is a basis for the metric topology.
+	\end{itemize}
+	\item Standard bounded metric $\overline{d}$ induces same metric topology with corresponding metric $d$
+	\item $\ell_p$-norm and metric on Euclidean space
+	\begin{itemize}
+		\item For $\textbf{x}\in\Real^n$,  $\|\textbf{x}\|$ is $\ell_2$-norm(or also called as Euclidean norm) and $ \|\textbf{x}\|_\infty $ is $\ell_\infty$-norm
+		\item Denote $d(\textbf{x},\textbf{y})=\|\textbf{x}-\textbf{y}\|$ and $\rho(\textbf{x},\textbf{y})=\|\textbf{x}-\textbf{y}\|_\infty$ where $d$ is called as Euclidean metric and $\rho$ is called as square metric.
+	\end{itemize}
+	\item Relationship between Euclidean metric and square metric
+	\begin{itemize}
+		\item For Euclidean metric $d$ and square metric $\rho$ and $\textbf{x},\textbf{y}\in \Real^n$ inequality below holds ; $\rho(\textbf{x},\textbf{y})\leq d(\textbf{x},\textbf{y})\leq \sqrt{n}\,\rho(\textbf{x},\textbf{y})$
+	\end{itemize}
+	\item How to compare two metric topologies using bases
+	\begin{itemize}
+		\item $\mathcal{T}_d, \mathcal{T}_{d'}$ are two metric topologies on $X$ induced by $d, d'$ respectively. \\$\mathcal{T}_d\subset \mathcal{T}_{d'} \Leftrightarrow \, \forall x\in X, \,\forall \epsilon>0$, $\;\exist \delta>0$ s.t. $B_{d'}(x, \delta)\subset B_d(x,\epsilon)$
+	\end{itemize}
+	\item Standard topology on $\Real^n$ is induced by Euclidean metric $d$ or square metric $\rho$
+	\item[\sq] Denote a metric on $\Real^n$ induced by $\ell_1$-norm as $d'$. Then $d(\textbf{x},\textbf{y})\leq d'(\textbf{x},\textbf{y})\leq \sqrt{n}\,d(\textbf{x},\textbf{y})$ holds and $d'$ also induces standard topology on $\Real^n$ \quad \# 20.1 
+	\item[*] Uniform metric and uniform topology
+	\begin{itemize}
+		\item $J$ : an arbitrary index set. A uniform metric $\overline{\rho}$ on $\Real^J$ is defined by \\
+		$\overline{\rho}(\textbf{x}, \textbf{y})=\sup\{\overline{d}(x_\alpha, y_\alpha) : \alpha \in J\} \; \forall \, \textbf{x}=(x_\alpha)_{\alpha\in J}, \textbf{y}=(y_\alpha)_{\alpha \in J}$\\  where $\overline{d}$ is a standard bounded metric on $\Real$
+		\item A metric topology on $\Real^J$ induced by uniform metric is called as uniform topology.
+	\end{itemize}
+	\item On $\Real^J$, Product topology $\subset$ Uniform topology $\subset$ Box topology.
+	\\ If $J$ is finite, all three topologies are the same and if $J$ is infinite then all three are different.
+	\item[\sq] Representation of basis element for uniform topology on $\Real^\omega$  \quad \#20.6
+	\begin{itemize}
+		\item Define $U(\textbf{x}, \epsilon)=\prod_{n=1}^\infty (x_n-\epsilon, x_n+\epsilon) \quad \forall \; \textbf{x}=(x_n)_{n\in \Nat}$ and $\forall \; 0<\epsilon <1$
+		\\ Basis element for uniform topology on $\Real^\omega$ is $B_{\overline{\rho}}(\textbf{x}, \epsilon)= \bigcup_{\delta<\epsilon} U(\textbf{x}, \delta)$
+	\end{itemize} 
+	\item $\Real^\omega$ equipped with product topology is metrizable by metric $D$ defined as \\$D(\textbf{x}, \textbf{y})=\sup\{\frac{\overline{d}(x_n, y_n)}{n} : n\in \Nat \} \; \forall \; \textbf{x}=(x_n)_{n\in \Nat}, \textbf{y}=(y_n)_{n\in \Nat}$
+	\item[\sq] Countable product of metric spaces is metrizable.
+	\item Subspace topology and metric topology are compatible.
+	\begin{itemize}
+		\item $(X,d),\; A\subset X$. Subspace topology on $A$ inherited from metric space $X$ agrees with the metric topology on $A$ induced by restricted metric $d|_A$ 
+	\end{itemize}
+	\item Every metric space is Hausdorff space.
+	\item On metric space $(X,d)$, taking metric $(x,y)\mapsto d(x,y)$  is a continuous map. \quad	\#20.3
+	\item Metric topology on $X$ induced by a metric $d$ is the smallest topology that makes the mapping of taking metric $d$ continuous \quad \# 20.3
+	\item $(X,d)$ : a metric space. Then metric $d'$ defined as $d'(x,y)=\frac{d(x,y)}{1+d(x,y)}$ is a bounded metric which imposes same topology induced by $d$ \quad \#20.11
+	
+\end{itemize}
+
+\bigskip
+\subsection{Metric Topology and Continuous Functions}
+\smallskip
+\begin{itemize}
+	\item $\epsilon - \delta$ definition of continuity carries over to general metric spaces.
+	\begin{itemize}
+		\item $(X,d_X), (Y, d_Y)\; ,f: X\rightarrow Y$, \; $f$ is continuous iff $\forall x\in X, \epsilon>0, \; \exist \delta>0$ s.t.\\ $y\in X$ and $ d_X(x,y)<\delta \Rightarrow d_Y(f(x),f(y))<\epsilon$
+	\end{itemize}
+	\item The sequence lemma
+	\begin{itemize}
+		\item $X$ : a topological space. $A\subset X$
+		\begin{enumerate}
+			\item If $\exist \{x_n\}\seq A$ converging to $x\in X$ then $x\in \cl{A}$
+			\item Provided $X$ is metrizable, if $x\in \cl{A}$ then $\exist \{x_n\}\seq A$ converging to $x\in X$
+		\end{enumerate}
+	\end{itemize}
+	\item Convergent sequence definition of continuity carries over to general metric spaces.
+	\begin{itemize}
+		\item $X, Y$ : topological spaces. $f: X\rightarrow Y$ 
+		\begin{enumerate}
+			\item If $f$ is continuous then $x_n\rightarrow x \sptwo \Rightarrow \sptwo f(x_n)\rightarrow f(x) \quad \forall \spone \{x_n\}\seq X$ 
+			\item Provided $X$ is metrizable, if $x_n\rightarrow x \sptwo \Rightarrow \sptwo f(x_n)\rightarrow f(x) \quad \forall \spone \{x_n\}\seq X$ then \\$f$ is continuous.
+		\end{enumerate}
+	\end{itemize}
+	\item Elementary algebraic operations `+',\,`--',\,`$\times$', and '$\div$' are all continuous. \quad \# 21.12
+	\item Additional methods of constructing continuous functions
+	\begin{itemize}
+		\item $X$ : a topological space. $f, g$ : real valued functions defined on $X$.\\If $f, g$ are continuous then $f+g, f-g,$ and $f\cdot g$ are continuous and\\ $f/g$ is also continuous given $g\neq 0$ on $X$.
+	\end{itemize}
+	\item Uniform convergence
+	\begin{itemize}
+		\item[*] $(Y,d)$ : a metric space. $\{f_n\}$ is a a function seq. $f_n : X\rightarrow Y$ and $f: X\rightarrow Y$.\\ $\{f_n\}$ is said to converge uniformly to $f$ if $\forall \, \epsilon>0, \exist N\in \Nat$ s.t. \\$d(f_n(x), f(x))<\epsilon \quad \forall n\geq N$ for any $x\in X$ \quad i.e. \quad $N$ does not depend on $x\in X$.
+		\item Often denoted as $f_n\rightrightarrows f$ 
+	\end{itemize}
+	\item Uniform limit theorem
+	\begin{itemize}
+		\item $X$ : a topological space. $(Y,d)$ : a metric space. $\{f_n\}$ : a function seq. $f_n : X\rightarrow Y$ and $f: X\rightarrow Y$. If each $f_n$ is continuous and $f_n\rightrightarrows f$ then $f$ is continuous. \\ i.e. \, the uniform limit of sequence of continuous functions must be continuous.
+	\end{itemize}
+	\item[\sq] $\Real^X$ is a function space $\{ f\, |\, f: X\rightarrow \Real \}$ for a given set $X$. The uniform metric on $\Real^X$ is defined as $\overline{\rho}(f,g)=\sup\{\overline{d}(f(x), g(x)) : x\in X\}\quad \forall \, f,g\in \Real^X$ where $\overline{d}$ is standard bounded metric on $\Real$.\\ Given uniform topology equipped on $\Real^X$, for a sequence of real-valued functions $\{f_n\}$ and a real-valued function $f$ defined on $X$,\quad $f_n\rightrightarrows f \Leftrightarrow \{f_n\}$ converges to $f$ in $\Real^X$.\quad \# 21.7
+	\item $(X, d_X),(Y, d_Y)$ : metric spaces. $f : X\rightarrow Y $ $f$ is isometry \; i.e. $d_X(x_1, x_2)=d_Y(f(x_1), f(x_2))$ Then $f$ is an (isometric) embedding \; i.e. $X\homeo f(X)$\quad  \# 21.2
+	\item $X$ : a topological space. $(Y,d)$ : a metric space. $\{f_n\}$ : a function seq. $f_n : X\rightarrow Y$ and $f: X\rightarrow Y$. \; $\{x_n\}\seq X$ and $x\in X$. If $x_n\rightarrow x$ and $f_n\rightrightarrows f$ then $f_n(x_n)\rightarrow f(x)$ \; \# 21.8  
+\end{itemize}
+\bigskip
+
+\subsection{Quotient Topology}
+\smallskip
+\begin{itemize}
+	\item[*] Quotient map
+	\begin{itemize}
+		\item $X, Y$ : topological spaces. $p : X\rightarrow Y$ is a surjective map. $p$ is said to be a quotient map if $\mathcal{V}\open Y \Leftrightarrow p^{-1}(\mathcal{V})\open X$, or equivalently, $F\closed Y \Leftrightarrow p^{-1}(F)\closed X$
+	\end{itemize}
+	\item[\rmk] Every quotient map is continuous. Every continuous surjective open map or closed map is a quotient map. Bijective quotient map and homeomorphism are the same.
+	\item[\rmk] Composition of quotient map is quotient map.
+	\item[\rmk] Product of quotient maps need not be a quotient map.
+	\item[\rmk] A quotient map does not preserve Hausdorff condition in general.
+	\item $p:X\rightarrow Y$ continuous. If $\exist f : Y\rightarrow X$ continuous s.t. $p\circ f=(identity)_Y$ then $p$ is a quotient map.     \# 22.2
+	\item[*] Quotient topology
+	\begin{itemize}
+		\item $X$ : a topological space. $A$ : a set. $p : X\rightarrow A$ is a surjective map. The quotient topology on $A$ induced by $p$ is the unique topology on $A$ which makes $p$ into a quotient map. Indeed the quotient topology on $A$ declares $\mathcal{U}\open A$ whenever $p^{-1}(\mathcal{U})\open X$
+	\end{itemize}
+	\item[*] Quotient space
+	\begin{itemize}
+		\item[*] $X$ : a topological space. $X^*$ : a partition of X \; i.e.\, $X^*=\{X_\alpha : X=\bigcup_{\alpha\in J}X_\alpha$ is a disjoint union$\}$.\, Define a surjective map $p : X\rightarrow X^*$ by $x\mapsto X_\alpha \; \forall \, x\in X_\alpha$.\\ $X^*$ is said to be a quotient space of $X$ if it is equipped with quotient topology induced by $p$.
+		\item[\rmk] Since a mapping $\alpha \mapsto X_\alpha$ is a bijection, $X^*\simeq J$ as sets. Also we can define equivalence relation ``$\sim$'' by the partition $X^*$ given by $x\sim y \Leftrightarrow p(x)=p(y)$. By this reason, we denote $X^*=X/\sim$. If $B\open X^*$ then $B$ is a collection of equivalence classes whose union is opet subset of $X$.
+	\end{itemize}
+	\item Continuous functions on the quotient space.
+	\begin{itemize}
+		\item $p:X\rightarrow Y$ is a quotient map. $g:X\rightarrow Z$ is a map which is constant on $p^{-1}(\{y\})$ for each $y\in Y$. Define $f:Y\rightarrow Z$ as an induced map by $g$ s.t. $f(y)=g(p^{-1}(y))\;\forall y\in Y$
+		\begin{enumerate}
+			\item $f$ is continuous $\Leftrightarrow$ $g$ is continuous
+			\item $f$ is a quotient map $\Leftrightarrow g$ is a quotient map
+		\end{enumerate}
+		\item[\sq] $g:X\rightarrow Z$ is a continuous surjection. $X^*=\{g^{-1}(\{z\}):z\in Z\}$ \\(Note that since $g$ is surjective, $X^*\simeq Z$ as sets) Regard $X^*$ as the quotient space and let $f:X^*\rightarrow Z $ be induced by $g$ as above. Then all the following hold true.
+		\begin{enumerate}
+			\item $f$ is continuous bijection
+			\item $f$ is homemorphism $\Leftrightarrow g$ is a quotient map
+			\item $Z$ is Hausdorff space $\Rightarrow X^*$ is Hausdorff. 
+		\end{enumerate}
+	\end{itemize}
+\end{itemize}
+\clearpage
+
+\section{Connectedness and Compactness}
+\bigskip
+\subsection{Connected Spaces}
+\smallskip
+\begin{itemize}
+	\item[*] Connectedness and separation
+	\begin{itemize}
+		\item $X$ : a topological space. A separtion of $X$ is a nonempty disjoint pair of open sets $\U, \V \subset X$ whose union is $X$. $X$ is said to be connected if $\nexists \,$ separation of $X$.
+		\item[\rmk] Connectedness is a topological property so that if $X\homeo Y$ and $X$ is connected then $Y$ is also connected.
+		\item[\rmk] If $(\U,\V)$ is a separation of $X$, then $\U, \V$ are both open and closed (or clopen) in $X$. 
+	\end{itemize}
+	\item $X$ is connected $\Leftrightarrow$ $X$ is the only nonempty clopen subset of $X$.
+	\item[(Ex)] As proved in the next section, $\Real^n$ is connected. So there is no proper nonempty clopen subset of Euclidean space. It means that if $A\subset \Real^n$ is open then $A$ is not closed and if $B\subset \Real^n$ is closed then $B$ is not open, provided $A,B$ are nonempty and not $\Real^n$ itself.
+	\item Separation of subspace
+	\begin{itemize}
+		\item $Y\subsp X$. A separation of $Y$ is a pair of disjoint nonempty subsets $A,B\subset Y$ whose union is $Y$, satisfying neither of which contains limit point(taken in $X$) of the other.
+	\end{itemize} 
+	\item[(Ex)] $\mathbb{Q}$ is totally disconnected \, i.e. \, the only connected subspaces of $\mathbb{Q}$ are one-point sets.
+	\item $Y\subsp X$. If $(\U, \V)$ is a separation of $X$ and $Y$ is connected then $Y\subset\U$ or $Y\subset\V$. 
+	\item Union of connected subspaces of $X$ having a common point is connected.
+	\item $A\subsp X$. If $A$ is connected and $A\subset C \subset \cl{A}$ then $C$ is also connected.
+	\item[\sq] $A\subsp X$. $A$ is connected $\Rightarrow \cl{A}$ is connected.
+	\item Image of a connected space under continuous map is connected.
+	\item A finite product of connected spaces is connected.
+	\item[\sq] An arbitrary product of connected space is also connected. \; \#23.10 
+	\item If $X$ are equipped with the discrete topology then $X$ is totally disconnected \quad \# 23.5
+	\item $A\subset X$. If $C\subsp X$ is connected and intersects both $A$ and $X\diff A$\\ then $C$ intersects $\partial A$ \, \# 23.6
+\end{itemize}
+\bigskip
+
+\subsection{Connected Subspaces of $\Real$}
+\smallskip
+\begin{itemize}
+	\item $\Real$ is connected and every interval or every ray in $\Real$ is connected.
+	\item Intermediate value theorem ; IVT
+	\begin{itemize}
+		\item $X$ : a topological space. $Y$ : an ordered space. If $X$ is connected and $f : X\rightarrow Y$ is continuous then for $x,y\in X$ and $\alpha \in Y$ s.t. $\alpha$ lies between $f(x)$ and $f(y)$ then $\exist z\in X$ s.t. $f(z)=\alpha$
+		\item[\sq] $f:\Real\rightarrow \Real$. $x,y\in \Real$ s.t. $x<y$. If $f$ is continuous and $\gamma$ lies between $f(x)$ and $f(y)$ then $\exist z\in (x,y)$\; s.t. $f(z)=\gamma$ 
+	\end{itemize}
+	\item[*]Path Connectedness
+	\begin{itemize}
+		\item $x,y\in X$. $p$ is called as a path from $x$ to $y$ if $p:[a,b]\rightarrow X$ is a continuous map with $p(a)=x,\, p(b)=y$. $X$ is said to be path connected if every pair $x,y\in X$ can be joined by a path in $X$. 
+	\end{itemize} 
+	\item Every path connected space is connected. 
+	\item Image of path connected space under continuous map is path connected. \; \# 24.8
+	\item Product of path connected spaces is path connected. \; \# 24.8
+	\item Union of path connected subspaces of $X$ having a common point\\ is path connected. \; \# 24.8
+	\item $A\subsp X$. ``$A$ is path connected'' need not imply that $\cl{A}$ is path connected.  \; \# 24.8
+	\item[(Ex)]No two spaces of $(0,1)\, (0,1],\, [0,1]$ are homeomorphic.\quad \# 24.1
+	\item[(Ex)]$\Real^n$ and $\Real$ are not homeomorphic for every $n>1$ \quad \# 24.1
+\end{itemize}
+\bigskip
+
+\subsection{Components and Local Connectedness}
+\smallskip
+\begin{itemize}
+	\item[*] (Connected) Component
+	\begin{itemize}
+		\item A (connected) component of $X$ is a maximal connected subspace of $X$. Formally, we can set equivalence relation $x\sim y$ if $\exist $connected subspace of $X$ containing $x$, $y$. Then the equivalence classes are called components of $X$. 
+	\end{itemize}
+	\item The components of $X$ are connected disjoint subspaces of $X$ whose union is $X$. Each nonempty connected subspace of $X$ intersects only one of them.
+	\item Every component is always a closed subspace.
+	\item Any nonempty clopen subset of $X$ contains whole points of component which it intersects.
+	\\If any nonempty clopen subset of $X$ is connected then it is a component of $X$.   
+	\item[*] Path component
+	\begin{itemize}
+		\item A path component of $X$ is a maximal path connected subspace of $X$.
+	\end{itemize}  
+	\item The path components of $X$ are path connected disjoint subspaces of $X$ whose union is $X$. Each nonempty path connected subspace of $X$ intersects only one of them.
+	\item[\sq] Each path component is contained in a component 
+	\item[*] Local Connectedness and Local path connectedness
+	\begin{itemize}
+		\item $X$ is said to be locally connected / path connected at $x$ if for any neighborhood $\U$ of x, $\exist $ connected / path connected neighborhood $\V$ of $x$ s.t. $x\in \V \subset \U$. If this happens for every $x\in X$ then $X$ is called locally connected / path connected.
+		\item[\rmk] Local connectedness means each point has arbitrary samll connected neighborhood. 
+	\end{itemize}
+	\item $X$ is locally connected $\Leftrightarrow$ $\forall\; \U \open X$, each component of $\U$ is open in $X$.
+	\item $X$ is locally path connected $\Leftrightarrow$ $\forall\; \U \open X$, each path component of $\U$ is open in $X$.
+	\item[\rmk] If $X$ is locally connected / path connected then every component / path component is open. Since every component is always closed, locally connected space has a partition consisting of clopen connected subspaces.
+	\item If $X$ is locally path connected then the components and the path components of $X$ are the same.
+	\item[\sq] If $X$ is locally path connected then $X$ is connected $\Leftrightarrow$ $X$ is path connected.
+	\item If $X$ is locally connected and compact then the number of components of $X$ is finite. \#Final test. 
+\end{itemize}
+\bigskip
+
+\subsection{Compact Spaces}
+\smallskip
+\begin{itemize}
+	\item[*] Compactness
+	\begin{itemize}
+		\item $X$ is said to be compact if every open covering of $X$ contains a finite subcollection that also covers $X$.
+	\end{itemize}
+	\item[\sq] Trivially, every finite set is compact.
+	\item Compactness of Subspace
+	\begin{itemize}
+		\item $Y\subsp X$. \; $Y$ is compact $\Leftrightarrow$ every covering of $Y$ by open sets in $X$ contains a finite subcollection that also covers $Y$.
+	\end{itemize} 
+	\item Every closed subspace of a compact space is compact.
+	\item Every compact subspace of a Hausdorff space is closed.
+	\item In Hausdorff space, a compact subspace and a point outside the subspace can be separated out by disjoint neighborhoods.\, i.e. \, if $X$ is Hausdorff, $C\subset X$ is compact and $x\notin C$ then $\exist \U, \V$ s.t. $x\in \U, C\subset \V$ and $\U\cap \V=\phi$
+	\item[\sq] Two disjoint compact subspaces of Hausdorff space can be separated out by disjoint neighborhoods. \,i.e.\, if $X$ is Hausdorff, $A, B\subset X$ are compact then $\exist \U, \V$ s.t.\\ $A\subset \U, B\subset \V$ and $\U \cap \V=\phi$ \quad \#26.5
+	\item Every compact subspace of a metric space is closed and bounded in that metric. \; \# 26.4
+	\item The image of compact space under a continuous map is compact.
+	\item[(Ex)] There is no continuous surjective map from a sphere $S^2$ to $\Real^2$
+	\item Finite union of compact spaces is compact.
+	\item If $f: X\rightarrow Y$ is continuous, $X$ is compact and $Y$ is Hausdorff then $f$ is homeomorphism
+	\item The tube lemma
+	\begin{itemize}
+		\item Suppose $Y$ is compact. $x\in X$. If $N\open X\times Y$ contains the slice $\{x\}\times Y$ then $\exist W\open X$ neighborhood of $x$ s.t. $\{x\}\ \times Y \subset W\times Y \subset N$
+	\end{itemize}
+	\item[\sq] Generalization of the tube lemma \quad \#26.9 
+	\begin{itemize}
+		\item $A\subsp X,\, B\subsp Y$. \, Suppose $A$ and $B$ are compact. If $N\open X\times Y$ contains $A\times B$ then $\exist \U\open X, \, \V \open Y$ \,s.t.\, $A\times B \subset \U \times \V \subset N$
+	\end{itemize} 
+	\item The product of finitely many compact spaces is compact.
+	\item Furthermore, using Zorn's lemma, it is proved that arbitary product of compact spaces is compact. (Tychonoff theorem) 
+	\item Finite intersection property ; F.I.P.
+	\begin{itemize}
+		\item A collection $\C$ of subsets of $X$ is said to have the finite intersection property (F.I.P.) if for any finite subcollection $\{C_1,\cdots, C_n\}$ of $\C$, the intersection $\bigcap_{i=1}^n C_i$ is nonempty
+		\item[\rmk] A nested sequence of nonempty sets is a typical example of collection having F.I.P.
+	\end{itemize}
+	\item Dual definition of Compactness
+	\begin{itemize}
+		\item $X$ is compact $\Leftrightarrow$ for any collection $\C$ of closed sets in $X$ having F.I.P. , the intersection $\bigcap_{C\in \C} C$ is nonempty.
+	\end{itemize}
+	\item If $Y$ is compact then projection map $\pi_1 : X\times Y \rightarrow X$ is a closed map. \quad \#26.7
+	\item Closed graph theorem \quad \#26.8
+	\begin{itemize}
+		\item $f : X\rightarrow Y$. The graph of $f$ is defined as $G_f=\{(x,f(x)):x\in X\}\subset X\times Y$. Suppose $Y$ is compact Hausdorff. Then the followings are equivalent.
+		\\	(a) $f$ is continuous. \, (b) $G_f\closed X\times Y$ \, (c) $X\homeo G_f$
+		\item If $Y$ is compact Hausdorff, then the following holds true. \\$f: X\rightarrow Y$ continuous $\Leftrightarrow$ the map $(identity)_{X}\times f : X\rightarrow X\times Y$ \; $x\mapsto (x, f(x))$ is embedding of $X$ to a closed set of $X\times Y$, which is a graph of $f$.
+	\end{itemize}
+\end{itemize}
+\clearpage
+
+\subsection{Compact Subspaces of $\Real$}
+\smallskip
+\begin{itemize}
+	\item Every closed interval in $\Real$ is compact.
+	\item[\sq] $[a_1,b_1]\times \cdots \times [a_n, b_n]$ in $\Real^n$ is compact.
+	\item Heine-Borel theorem
+	\begin{itemize}
+		\item $A\subsp \Real^n$.\, Then $A$ is compact $\Leftrightarrow A$ is closed and bounded in the Euclidean metric $d$ or the square metric $\rho$.
+	\end{itemize}
+	\item Max-Min value theorem
+	\begin{itemize}
+		\item $X$ : a topological space. $Y$ : an ordered space. If $X$ is compact and $f: X\rightarrow Y$ is continuous then $\exist x_m,\, x_M$ s.t. $f(x_m)\leq f(x)\leq f(x_M)\quad \forall x\in X$
+	\end{itemize} 
+	\item[*] Distance from a point to a set.
+	\begin{itemize}
+		\item $(X,d)$ : a metric space. $A\subset X$ nonempty. For each $x\in X$, the distance from $x$ to $A$ is defined as $d(x,A)=\inf\{d(x,a):a\in A\}$
+	\end{itemize}
+	\item Properties of distance from a point to a set. \quad \# 27.2
+	\begin{enumerate}
+		\item $d(x,A)=0 \Leftrightarrow x\in \cl{A}$
+		\item If $A$ is compact then $d(x,A)=d(x,a)$ for some $a\in A$
+		\item Define $N(A, \epsilon)=\{x\in X : d(x,A)<\epsilon\}$. Then $N(A, \epsilon)=\bigcup_{a\in A}B_d(a,\epsilon)$
+		\item If $A$ is compact then $\forall\; \U\open X$ containing $A$, then $\exist \epsilon>0$ s.t. $N(A, \epsilon)\subset \U$
+	\end{enumerate}
+	\item For a given nonempty $A\subset X$, mapping $x\mapsto d(x,A)$ from $X$ to $\Real$ is continuous.
+	\\In fact,\, $|d(x,A)-d(y,A)|\leq d(x,y)\quad \forall x,y\in X$\; holds true.
+	\item The Lebesgue number lemma
+	\begin{itemize}
+		\item $(X,d)$ : a metric space. let $\A$ be an open covering of $X$. If $X$ is compact then $\exist \delta>0$ (depending on $\A$) satisfying $\forall \, B\subset X$ with $diam(B)<\delta$, $\exist A\in \A$ s.t. $B\subset A$. Such $\delta$ is called a Lebesgue number for the covering $\A$.
+	\end{itemize}
+	\item[*] Uniform continuity
+	\begin{itemize}
+		\item $(X, d_X), (Y, d_Y)$ : metric spaces. $f:X\rightarrow Y$ is said to be uniformly continuous if $\forall \epsilon >0, \; \exist \delta>0$ s.t. $d_X(x,y)<\delta \Rightarrow d_Y(f(x), f(y))<\epsilon$ \;for any pair $x,y$ of $X$
+	\end{itemize}
+	\item Uniform continuity theorem
+	\begin{itemize}
+		\item $(X, d_X), (Y, d_Y)$ : metric spaces. If $X$ is compact and $f: X\rightarrow Y$ is continuous then $f$ is uniformly continuous.
+	\end{itemize}
+	\item[*] Isolated point
+	\begin{itemize}
+		\item $X$ : a topological space. $x\in X$ is said to be an isolated point of $X$ if $\{x\}\open X$
+	\end{itemize}
+\clearpage
+	\item Limit point and isolated point
+	\begin{itemize}
+		\item $X$ : a topological sapce. $A\subset X$. For $x\in A$, \begin{enumerate}
+			\item If $x$ is a limit point of $A$ then $x$ is not an isolated point of $A$.
+			\item If $x$ is an isolated point of $A$ then $x$ is not a limit point of $A$.
+		\end{enumerate}
+	\end{itemize}
+	\item If nonempty $X$ is compact Hausdorff and have no isolated point, then $X$ is uncountable.
+	\item[\sq]Any intervals in $\Real$ is uncountable and $\Real$ itself is uncountable.
+	\item[(Ex)] Cantor set $C$
+	\begin{enumerate}
+		\item We can represent $C=\bigcap_{n=1}^{\infty}I_n$\; where each set $I_n$ is a union of $2^n$ many disjoint closed intervals with length $1/3^n$. All endpoints of these intervals lie in $C$.
+		\item $C$ is totally disconnected.
+		\item $C$ is compact.
+		\item Every point of $C$ is a limit point of $C$ so that $C$ has no isolated point.
+		\item $C$ is uncountable.
+	\end{enumerate}   
+\end{itemize}
+\bigskip
+
+\subsection{Limit point Compactness \& Sequential Compactness}
+\smallskip
+\begin{itemize}
+	\item[*] Limit point compactness
+	\begin{itemize}
+		\item $X$ : a topological space. $X$ is said to be limit point compact if every infinite subset of $X$ has a limit point. (Also called as ``Bolzano-Weierstrass property'')
+	\end{itemize}
+	\item Compactness is stronger than limit point compactness
+	\item[*] Sequential compactness
+	\begin{itemize}
+		\item $X$ : a topological space. $X$ is said to be sequentially compact if every sequence in $X$ has a convergent subsequence converging to a point in $X$.
+	\end{itemize}
+	\item[*]Totally Boundedness
+	\begin{itemize}
+		\item $(X,d)$ : a metric space. $X$ is said to be totally bounded if $\forall \; \epsilon>0$, $\exist$ a finite covering of $X$ consisting of $\epsilon$-balls. 
+	\end{itemize} 
+	\item $(X,d)$ : a metric space. If $X$ is sequentially compact then 
+	\begin{enumerate}
+		\item The Lebesgue number lemma also holds.
+		\item $X$ is totally bounded.
+	\end{enumerate} 
+	\item For any metric space, compactness, limit point compactness, and sequential compactness are all equivalent.
+	\item Fixed point of shrinking map in compact metric space \quad \# 28.7
+	\begin{itemize}
+		\item $(X,d)$ : a metric space. $f: X\rightarrow X$. $f$ is called as a shrinking map if \\$d(f(x),f(y))<d(x,y)$ whenver $x\neq y$. If $X$ is compact and $f$ is a shrinking map on $X$ then $f$ has a unique fixed point \, i.e. \, $\exist ! \;x\in X$ s.t. $f(x)=x$
+	\end{itemize}
+	\item[*] Countable compactness
+	\begin{itemize}
+		\item $X$ : a topological space. $X$ is said to be countably compact if every countable open covering of $X$ contains a finite subcollection that also covers $X$.
+	\end{itemize} 
+	\item Relation of countable compactness and limit point compactness \quad \# 28.4
+	\begin{itemize}
+		\item Countable compactness implies limit point compactness
+		\\ With $T_1$ axiom, limit point compactness and countable compactness are equivalent.
+	\end{itemize}
+	\item $(X,d)$ : a metric space. If $X$ is compact and $f: X\rightarrow X$ is a isometry\\ then $f$ is homeomorphism. \quad \# 28.6
+	\\
+	\item[(Notes)] Various concepts of compactness
+	\begin{itemize}
+		\item $(Compactness)\Rightarrow (Countable\; Compactness)\Rightarrow (Limit\, point\; Compactness)$
+		\item $(Compactness)\underset{Lindelof}{\Leftarrow} (Countable\; Compactness)\underset{T_1\, axiom}{\Leftarrow}(Limit\, point\; Compactness)$
+		\item In metric space, $(Compactness)\Leftrightarrow(Limit\, point\; Compactness)\Leftrightarrow(Sequential \; Compactness) $
+		\item In metric space, $(Compact\; subspacce)\Rightarrow (Closed\; and \;Bounded \;subspace)$
+		\item In Eucldiean space, $(Compact \;subspacce)\Leftrightarrow (Closed \;and \;Bounded \;subspace)$
+	\end{itemize}  
+\end{itemize}
+\bigskip
+
+\subsection{Local Compactness}
+\smallskip
+\begin{itemize}
+	\item[*]Local compactness
+	\begin{itemize}
+		\item $X$ : a topological space. $X$ is said to be locally compact at $x\in X$ if $\exist$ compact $ C\subset X$ containing some neighborhood of $x$. \; $X$ is said to be locally compact if it is locally compact at every point.
+	\end{itemize}
+	\item[\rmk] Clearly compactness is stronger than local compactness.
+	\item[(Ex)] Euclidean space is locally compact.  
+	\item $X$ : a topological space. $X$ is locally compact Hausdorff $\Leftrightarrow \exist$ a topological space $Y$ s.t. \,(a)\,$Y$ is compact Hausdorff. (b)\, $Y\diff X$ is one point set. (c)\, $X$ is an open subspace of $Y$
+	\begin{itemize}
+		\item $Y=X\cup \{\infty\}$ equipped with topoogy $\{\U : \U\open X\}\cup\{Y\diff C : C\subset X$ compact $\}$
+		\item Such space $Y$ is unique up to homeomorphism.
+	\end{itemize}
+	\item[\rmk] If $X$ is compact Hausdorff then obtained $Y=X\cup\{\infty\}$ is not interesting since in this case $\infty$ is an isolated point of $Y$. If $X$ is non-compact but locally compact Hausdorff, then $\infty$ in obtained $Y=X\cup\{\infty\}$ is limit point of $X$ in $Y$, so that $\cl{X}=Y$.
+	\item[*]Compactification
+	\begin{itemize}
+		\item $Y$ : compact Hausdorff space. If $X$ : a proper subspace of $Y$ s.t. $\cl{X}=Y$ then $Y$ is said to be a compactification of $X$. If $Y\diff X$ is one point set then $Y$ is said to be the one point compactification of $X$.
+	\end{itemize}
+	\item[\sq] $X$ is locally compact Hausdorff but non-compact $\Leftrightarrow X$ has the one point compactification.
+	\item $X_1\homeo X_2$ are locally compact Hausdorff spaces with homeomorphism $f$. Then $f$ can be extended to homeomorphism of their one point compactifications. \quad \# 29.5 
+	\item[(Ex)]One point compactification of $\Real$ is homeomorphic to the circle $S^1$ \quad \#29.6
+	\item[(Ex)]One point compactification of $\Nat$ is homeomorphic to $\{1/n : n\in \Nat\}\cup \{0\}$ \quad \#29.8
+	\item Natural local property of local compactness
+	\begin{itemize}
+		\item $X$ : Hausdorff space. $X$ is locally compact $\Leftrightarrow \, \forall \, x\in X$ and $\forall\,$ neighborhood $\U$ of $x$, $\exist$ a neighborhood $\V$ of $x$ s.t. $x\in \cl{\V}\subset \U$ and $\cl{V}$ is compact.
+	\end{itemize}
+	\item Every open subspace of locally compact Hausdorff space is locally compact Hausdorff. Every closed subspace of locally compact Hausdorff space is locally compact Hausdorff.
+	\item $X$ is homeomorphic to an open subspace of a compact Hausdorff space\\ $\Leftrightarrow X$ is locally compact Hausdorff.
+	\item[\rmk] Our favorite well-behaved spaces are metrizable spaces and compact Hausdorff spaces. If given space is not one of those spaces then the next best thing is that it is a subspace of one of those spaces. Notice that subspace of metrizable space is also metrizable so nothing new happens. However, subspace of compact Hausdorff space can be modeled as a locally compact Hausdorff space.
+\end{itemize}
+\clearpage
+
+\section{Countability and Separation Axioms}
+\bigskip
+\subsection{The Countability Axioms}
+\smallskip
+\begin{itemize}
+	\item[*] First countablility
+	\begin{itemize}
+		\item $X$ : a topological space. $x\in X$. $X$ is said to have a countable basis at $x$ if $\exist$ a countable collection $\B$ of neighborhoods of $x$  s.t. each neighborhood $\U$ of $x$ contains at least one of the elements of $\B$. $X$ is said to be first countable if $X$ has a countable basis at every point.
+	\end{itemize}
+	\item[\sq] Every metric space is first countable.
+	\item Revisiting sequence lemma and convergent sequence definition of continuity
+	\begin{itemize}
+		\item Provided $X$ is first countable, if $x\in \cl{A}$ then $\exist \{x_n\}\seq A$ converging to $x\in X$
+		\item Provided $X$ is first countable, if $x_n\rightarrow x \sptwo \Rightarrow \sptwo f(x_n)\rightarrow f(x) \quad \forall \spone \{x_n\}\seq X$ then \\$f$ is continuous.
+	\end{itemize}
+	\item[*] Second countability
+	\begin{itemize}
+		\item $X$ is said to be second countable if $X$ has a countable basis for the topology which $X$ is equipped with.
+	\end{itemize}
+	\item[\sq] Obviously, second countability is stronger than first countability.
+	\item[(Ex)]$\Real$ is second countable with a countable basis $\B_\mathbb{Q}=\{(a,b): a,b\in \mathbb{Q}\}$
+	\item The set of all finite subsets of $\Nat$ is countable.
+	\item[(Ex)] $\Real^\omega$ equipped with product topology is second countable.
+	\item[\rmk] Not every metric space is second countable.
+	\item First and Second countability are preserved under taking subspace or countable product.
+	\item[*]Lindelof space
+	\begin{itemize}
+		\item $X$ : a topological space. $X$ is said to be a Lindelof space if every open covering of $X$ contains a countable subcollection which also covers $X$.
+	\end{itemize} 
+	\item[*]Separable space
+	\begin{itemize}
+		\item $X$ : a topological space. $X$ is called as separable if $\exist$ a countable dense subset of $X$ 
+	\end{itemize}
+	\item Lindelof space, Separable space, and second countability
+	\begin{enumerate}
+		\item Second countable space is Lindelof space and separable.
+		\item For metric space, (Separable) $\Leftrightarrow$ (Second countable) $\Leftrightarrow$ (Lindelof) \quad \# 30.5
+	\end{enumerate}
+	\item[(Ex)] $I=[0,1]$. Impose the uniform metric on $\Real^I$. let $\C(I, \Real)\subsp \Real^I$ be a space of continuous real valued functions on $[0,1]$. $\C(I, \Real)$  has a countable dense subset $Q(I, \Real)$ which is a set of all poloynomials on $I$ with rational coefficients. Hence, $\C(I, \Real)$ has a countable basis.
+	\item $X$ is Lindelof space $\Leftrightarrow$ For every collection $\A$ of subsets of $X$ having countable intersection property, $\bigcap_{A\in \A}\cl{A}$ is nonempty. \quad \# 37.2
+	\item Every compact metric space has a countable basis. \quad \# 30.4
+	\item $G_\delta$ set in $X$ is a set that equals a countable intersection of open sets in $X$. If $X$ is first countable $T_1$ space then every one point set in $X$ is a $G_\delta$ set. \quad \#30.1
+\end{itemize}
+\bigskip
+
+\subsection{The Separation Axioms}
+\smallskip
+\begin{itemize}
+	\item[*] Regular space($T_3$ space) and Normal space($T_4$ space)
+	\begin{enumerate}
+		\item A topological space $X$ is said to be regular (or $T_3$ space) if $X$ is $T_1$ space and each pair of a closed set and a point outside the set are separated out by disjoint neighborhoods. i.e. $\forall B\closed X$ and $x\notin B$,\, $\exist$ disjoint\; $\U, \V\open X$\, s.t. $x\in \U, B\subset \V$
+		\item A topological space $X$ is said to be normal (or $T_4$ space) if $X$ is $T_1$ space and each pair of disjoint closed sets are separated out by disjoint neighborhoods.\\ i.e. $\forall$ disjoint\; $A,B\closed X$, \, $\exist$ disjoint\; $\U, \V \open X$\, s.t. $A\subset \U, B\subset \V$
+	\end{enumerate} 
+	\item Local ways to formulate regularity and normality
+	\begin{enumerate}
+		\item Provided $X$ is a $T_1$ space, $X$ is regular $\Leftrightarrow \forall x\in X$ and $\forall$ neighborhood $\U$ of $x$, $\exist$ \, a neighborhood $\V$ of $x$ s.t. $\cl{V}\subset \U$
+		\item Provided $X$ is a $T_1$ space, $X$ is normal $\Leftrightarrow \forall A\closed X$ and $\forall \; \U\open X$ containing $A$, $\exist \V \open X$ containing $A$ s.t. $\cl{V}\subset \U$  
+	\end{enumerate}
+	\item Regularity is preserved under taking subspace or taking product.
+	\item In regular space, every pair of distinct points have neighborhoods whose closures are disjoint. \quad \# 31.1
+	\item Every locally compact Hausdorff space is regular.\quad \# 32.3
+	\item Every regular space with a countable basis is normal.
+	\item[\sq] Every regular Lindelof space is normal. \quad \# 32.4
+	\item Every metric space is normal.
+	\item Every compact Hausdorff space is normal.
+	\item Every well-ordered set given order topology is normal.
+	\item[*] Separated Sets
+	\begin{itemize}
+		\item $A,B\subset X$ is said to be separated if $\cl{A}\cap B=\phi$ and $A\cap \cl{B}=\phi$
+		\item[\rmk] (Disjoint closed sets)$\Rightarrow$(Separated sets)$\Rightarrow$(Disjoint sets) 
+	\end{itemize}
+\clearpage
+	\item[*] Completely normal space($T_5$ space)
+	\begin{itemize}
+		\item A topological space $X$ is said to be completely normal if every subspace of $X$ is normal.
+	\end{itemize}
+	\item Given $X$ is $T_1$ space, $X$ is completely normal iff every pair of separated sets in  $X$  are separated out by disjoint neighborhoods.  \quad \# 32.6
+	\\
+	\item[(Notes)] Summary of facts about separation axioms $T_1, T_2, T_3, T_4, T_5$
+	\begin{itemize}
+		\item (Weaker)\;$T_1\rightarrow T_2 \rightarrow T_3 \rightarrow T_4 \rightarrow T_5$\;(Stronger)
+		\item Two distinct points in $X$ are separated by ...
+		\begin{enumerate}
+			\item neighborhoods that does not contain the other point if $X$ is $T_1$ space
+			\item disjoint neighborhoods if $X$ is Hausdorff space.
+			\item neighborhoods whose closures are disjoint if $X$ is regular space.
+		\end{enumerate}
+		\item These are separated out by disjoint neighborhoods in $X$...
+		\begin{enumerate}
+			\item $X$ is Hausdorff $\rightarrow$ A compact set and a point outside the set (furthermore, two disjoint compact sets)
+			\item $X$ is regular $\rightarrow$ A closed set and a point outside the set
+			\item $X$ is normal $\rightarrow$ Two disjoint closed sets. 
+			\item $X$ is completely normal $\rightarrow$ Two separated sets. 
+		\end{enumerate}
+		\item $T_1\underset{Finite\; set}{\Rightarrow}T_2\underset{Locally\; Compact}{\Rightarrow}T_3\underset{Lindelof}{\Rightarrow}T_4$ \quad and\quad $T_2\underset{Compact}{\Rightarrow}T_4$
+		\item Hausdorff condition and regularity are preserved under taking subspace or taking product. But normality is not preserved under taking subspace or taking product.
+		\\ Counterexample : $\Real^J$ is not normal if $J$ is uncountable index set. \quad \# 32.9
+	\end{itemize} 
+\end{itemize}
+\bigskip
+
+\subsection{The Urysohn Lemma / The Urysohn metrization Theorem \\ / Tietze Extension Theorem}
+\smallskip
+\begin{itemize}
+	\item[*] Separated by continuous function
+	\begin{itemize}
+		\item $X$ : a topological space. $A,B\subset X$. If $\exist$  a continuous function $f: X\rightarrow [0,1]$ s.t. $f(A)=\{0\}$ and $f(B)=\{1\}$ then  $A$ and $B$ are said to be separated by a continuous function.
+	\end{itemize}
+	\item Urysohn lemma
+	\begin{itemize}
+		\item If $X$ is normal then every pair of disjoint closed sets in $X$ can be separated by a continuous function.
+		\item[\rmk] Indeed, ``if and only if '' holds for this lemma.
+	\end{itemize}
+	\item[*]Completely regurlar space($T_{3.5}$ space)
+	\begin{itemize}
+		\item A topological space $X$ is said to be completely regular (or $T_{3.5}$ space) if $X$ is $T_1$ space and each pair of a closed set and a point outside the set are separated out by continuous function.
+	\end{itemize}
+	\item[\rmk] (Weaker)\; $T_3\rightarrow T_{3.5}\rightarrow T_4$\; (Stronger) 
+	\item Complete regularity is preserved under taking subspace or taking product.
+	\item Every pair of disjoint closed sets in completely regular space are separated by a continuous function if one of those sets is compact. \quad \#33.8
+	\item[(Ex)] Given a topological space $X$, let $\C(X)$ be the set of all continuous real-valued functions defined on $X$. Note that $\C(X)$ is a vector space.\\ If $X$ is normal then ``$X$ is a infinite set $\Rightarrow \C(X)$ is an infinite dimensional vector space''
+	\item Given continuous function $f: \Real^2 \rightarrow \Real$, define $\U_f$ by $\U_f=\{x\in \Real^2 : f(x)\neq 0\}$. Then $\B=\{\U_f\, |\, f:\Real^2\rightarrow \Real$ \, continuous $\}$ generates the standard topology on $\Real^2$ \\i.e. the collection of support of continuous real-valued functions defined on $\Real^2$ coincides with the standard topology on $\Real^2$. \quad \# Final Test
+	\item Urysohn metrization theorem
+	\begin{itemize}
+		\item Every regular space with a countable basis is metrizable.
+	\end{itemize}
+	\item If $X$ is compact Hausdorff then $X$ is metrizable $\Leftrightarrow X$ is second countable. \quad \# 34.3
+	\item Tietze Extension theorem
+	\begin{itemize}
+		\item $X$ is normal space and $A\closed X$. Then any continuous map $f: A\rightarrow[a,b]$ can be extended to a continuous map $g: X\rightarrow [a,b]$. Also any continuous map $f: A\rightarrow \Real$ can be extended to a continuous map $g: X\rightarrow \Real$. \\ Furthermore, $f : A\rightarrow \Real^J$ can be extended to a continuous map $g: X\rightarrow \Real^J$ for any index set $J$. (The last one \# 44.2)
+	\end{itemize}
+	\item[(Ex)] $S=\{(x, sin(1/x)): 0<x\leq 1\}$. $\cl{S}$ is called as ``topologist's sine curve'' Since $\cl{S}$ is closed subset of a normal space $\Real^2$, if there is a continuous function $f : \cl{S}\rightarrow \Real$ then there is a continuous extension $g : \Real^2\rightarrow \Real$ for a given $f$
+\end{itemize}
+\clearpage
+
+\section{Paracompactness}
+\bigskip
+\subsection{Local Finiteness}
+\smallskip
+\begin{itemize}
+	\item[*] Locally Finite
+	\begin{itemize}
+		\item $X$ : a topological space. A collection $\A$ of subsets of $X$ is called locally finite if every point $x\in X$ has a neighborhood intersecting only finitely many elements of $\A$ 
+	\end{itemize}
+	\item If $\A$ is locally finite collection of subsets of $X$ then 
+	\begin{enumerate}
+		\item Any subcollection of $\A$ is locally finite
+		\item The collection $A'=\{\cl{A}:A\in \A\}$ is locally finite
+		\item $\bigcup_{A\in \A}\cl{A}=\cl{\bigcup_{A\in \A}A}$ \; (Without any assumption, $\subset$ direction holds true in general.)
+	\end{enumerate}
+	\item[\rmk] If $\A$ is locally finite collection of subsets of $X$ then it is guaranteed that $\bigcup_{A\in \A}\cl{A}$ is closed.
+	\item[*] Countably locally finite 
+	\begin{itemize}
+		\item $X$ : a topological space. A collection $\A$ of subsets of $X$ is called countably locally finite if $\A$ can be represented as a countable union of locally finite collections.
+	\end{itemize}
+	\item[\rmk] Trivially, every finite collection is locally finite and every countable collection is countably locally finite.
+	\item Assume $X$ is second countable. For a collection $\A$ of subsets of $X$, $\A$ is countably locally finite $\Leftrightarrow$ $\A$ is countable. \quad \# 39.5
+	\item[*] Refinement
+	\begin{itemize}
+		\item $\A, \B$ : collections of subsets of $X$. $\B$ is said to be a refinement of $\A$ (or $\B$ refines $\A$) if $\forall \; B\in \B$, $\exist A\in \A$ s.t. $B\subset A$
+	\end{itemize} 
+	\item If $X$ is a metrizable space then every open covering of $X$ has a countably locally finite open refinement that covers $X$. \quad (Take advantage of Well-ordering principle)
+\end{itemize}
+\bigskip
+
+\subsection{Paracompactness}
+\smallskip
+\begin{itemize}
+    \item[*] Paracompact
+    \begin{itemize}
+        \item A topological space $X$ is said to be paracompact if every open covering of $X$ has locally finite open refinement that covers $X$
+    \end{itemize}
+    \item[\rmk] $X$ is compact iff every open covering of $X$ has finite open refinement that covers $X$. Paracompactness is a kind of local notion that can generalize the concept of compactness.
+    \item[(Ex)] Euclidean space is paracompact.
+    \item Every paracompact Hausdorff space is normal.
+    \item Every closed subspace of paracompact space is paracompact.
+    \item If $X$ is regular space then the following holds true :
+    \\``Every open covering of $X$ has countably locally finite open refinement that covers $X$'' \\$\Rightarrow$ ``Every open covering of $X$ has locally finite open refinement that covers $X$''
+    \item Every metrizable space is paracompact.
+    \item[*] Support of a real-valued function
+    \begin{itemize}
+        \item $\phi : X\rightarrow \Real$ is a map. Support of $\phi$ is defined as $support(\phi)=\cl{\{x\in X : \phi(x)\neq 0\}}$
+    \end{itemize}
+    \item[*] Partition of unity
+    \begin{itemize}
+        \item $\{\U_\alpha\}_{\alpha\in J}$ : an open covering of $X$ (We may assume all $\U_\alpha$'s are distinct to get rid of redundancy). A family of continuous functions $\{\phi_\alpha : X\rightarrow [0,1]\}_{\alpha\in J}$ is said to be a partition of unity dominated by $\{\U_\alpha\}_{\alpha\in J}$ if the followings are satisfied : 
+        \begin{enumerate}
+            \item $support(\phi_\alpha)\subset \U_\alpha \quad \forall \, \alpha\in J$  \quad ``$\phi_\alpha$ vanishes outside $\U_\alpha$ ; $\phi_\alpha$'s are local data.''
+            \item $\{support(\phi_\alpha)\}_{\alpha\in J}$ is locally finite collection of closed sets.
+            \item $\sum_{\alpha\in J}\phi_\alpha(x)=1 \quad \forall \, x\in X$
+        \end{enumerate}
+        \item[\rmk] By local finiteness condition in (\romannumeral 2), for each $x\in X$, there is a neighborhood of $x$ intersecting only finitely many supports of $\phi_\alpha$'s. Therefore the sum taken in the (\romannumeral 3) is in fact a finite sum for each $x\in X$. The name of a partition of `unity' comes from the property (\romannumeral 3)
+    \end{itemize}
+    \item Shrinking lemma
+    \begin{itemize}
+        \item If $X$ is a paracompact Hausdorff space then for an open covering $\{\U_\alpha\}_{\alpha \in J}$ of $X$, \\ $\exist$ a locally finite open covering $\{\V_\alpha\}_{\alpha \in J}$ s.t. $\cl{\V_\alpha}\subset \U_\alpha\quad \forall \, \alpha\in J$  
+    \end{itemize}
+    \item If $X$ is paracompact Hausdorff and $\{\U_\alpha\}_{\alpha \in J}$ is an open covering of $X$ then \\ $\exist$ a partition of unity on $X$ dominated by $\{\U_\alpha\}_{\alpha \in J}$
+    \item[(Ex)] $X$ is paracompact Hausdorff space. $X=\U \, \cup \V$ where $\U,\, \V$ are two nonempty open subsets of $X$. ($\U$ and $\V$ need not be disjoint). Given two continuous functions $f: \U\rightarrow [1,\infty)$ and $g: \V\rightarrow [1,\infty)$, there exists a continuous map $h: X\rightarrow [1,\infty)$ s.t. $h=f$ on $X\diff \V$ and $h=g$ on $X\diff \U$ \; \# Final Test
+    \item[(Ex)] A smooth bump function
+    \begin{itemize}
+        \item We have encountered a bump function in proving Urysohn lemmma or a partition of unity, which has a support in small local area and vanishes elsewhere. \\ We can construct a smooth bump function defined on Euclidean space as below : 
+        \begin{enumerate}
+            \item Define $f:\Real \rightarrow \Real$ by $f(x)=exp(-1/x^2) \quad \forall x\neq 0$ and $f(0)=0$
+            \item Then for some $r>0$, define $g_r : \Real^n \rightarrow \Real$ by $g_r(x)=f(r^2-|x|^2)I(|x|\leq r)$
+            \\ $g_r$ is a smooth bump function defined on $\Real^n$
+        \end{enumerate}
+    \end{itemize}
+\end{itemize}
+\clearpage
+
+\section{Complete Metric Spaces \& Function Spaces}
+\bigskip
+\subsection{Complete Metric Space}
+\begin{itemize}
+    \item[*] Cauchy Sequence \& Completeness
+    \begin{itemize}
+        \item $(X,d)$ : a metric space. $\{x_n\}\seq X$ is said to be a Cauchy sequence if $\forall \, \epsilon>0, \exist N\in \Nat$ s.t. $d(x_n, x_m)<\epsilon \quad \forall \, n,m\geq N$. If every cauchy sequence in $X$ converges then $X$ is said to be complete
+    \end{itemize}
+    \item[\rmk] Any convergent sequence is a Cauchy sequence in a metric space.
+    \item[\rmk] Every closed subspace of complete metric space is complete.
+    \item[\rmk] If $(X,d)$ is a metric space and $\overline{d}$ is a standard bounded metric for $d$ \\ then for $\{x_n\}\seq X$ and $x\in X$,
+    \begin{enumerate}
+        \item $\{x_n\}$ is a Cauchy sequence under $d\; \Leftrightarrow \{x_n\}$ is a Cauchy sequence under $\overline{d}$
+        \item $\{x_n\}$ converges to $x$ under $d\; \Leftrightarrow \{x_n\}$ converges to $x$ under $\overline{d}$
+        \item $(X,d)$ is complete $\Leftrightarrow \; (X,\overline{d})$ is complete
+    \end{enumerate}
+    i.e. \, Cauchyness \& convergence of sequence and completeness of metric space only care about small distances.
+    \item $(X,d)$ : a metric space. If every Cauchy sequence in $X$ has a convergent subsequence then $X$ is complete.
+    \item Euclidean space is complete metric space in either Euclidean metric or square metric.
+    \item $\Real^\omega$ equipped with a metric $D$ which induces product topology is a complete metric space.
+    \item[(Ex)]$\mathbb{Q}$, as a subspace of metric space $\Real$, is not complete.
+    \item[*] Function space and uniform metric
+    \begin{itemize}
+        \item $(Y,d)$ : a metric space. $J$ : an arbitrary index set. Then $Y^J$ can be viewed as a function space $Y^J=\{f\,|\, f: J\rightarrow Y\}. \; $A uniform metric $\overline{\rho}$ on $Y^J$ corresponding to $d$ on $Y$ is defined by
+		$\overline{\rho}(f,g)=\sup\{\overline{d}(f(\alpha), g(\alpha)) : \alpha \in J\} \quad \forall \, f,g : J\rightarrow Y$\; where $\overline{d}$ is a standard bounded metric for $d$
+    \end{itemize}
+    \item If $(Y,d)$ is complete metric space then given any set $J$, $(Y^J, \overline{\rho})$ is complete metric space. \; i.e.\, completeness of target space implies the completeness of function space induced by the uniform metric.
+    \item[(Ex)] $\Real^n$ is a complete metric space under Euclidean or square metric. $\Real^\omega$ is also a complete metric space under metric $D$. But $\Real^J$ with product topology is not a metrizable space if $J$ is uncountable since it is not normal. Instead, if we impose uniform topology on $\Real^J$ then $\Real^J$ is complete metric space.
+ \clearpage
+	\item[*] Notations for function space
+    \begin{itemize}
+        \item $X$ : a topological space. $(Y,d)$ : a metric space. $Y^X$ is a function space defined as $Y^X=\{f\,|\, f: X\rightarrow Y \}$. We can impose uniform topology on $Y^X$
+        \\ There are two important subspaces of $Y^X$
+        \begin{enumerate}
+            \item $\C(X,Y)=\{f\,|\, f:X\rightarrow Y \; continuous\}$
+            \item $\B(X,Y)=\{f\,|\, f:X\rightarrow Y \; bounded\}$
+        \end{enumerate}
+        \item[\rmk] Continuity of function $f: X\rightarrow Y$ depends on the topology on $X$ so we need a topological space $X$ as a domain. Also a function is called as bounded if the image is bounded in the metric of the target space.
+    \end{itemize}
+    \item $X$ : a topological space. $(Y,d)$ : a metric space. A function space $Y^X$ is equipped with the uniform topology. If $Y $ is complete then (a) $Y^X$ is complete  (b) $\C(X,Y), \B(X,Y)\closed Y^X$ \\ so that both $\C(X,Y)$ and $\B(X,Y)$ are complete.
+    \item[*]Sup metric for function space
+    \begin{itemize}
+        \item $X$ : a topological space. $(Y,d)$ : a metric space. We can define sup metric $\rho$ on $\B(X,Y)$ defined as $\rho(f,g)=\sup\{d(f(x), g(x)) : x \in X\} \quad \forall \, f,g \in \B(X,Y) $\;
+    \end{itemize}
+    \item[\rmk] Relation b.w. sup metric and uniform metric is $\overline{\rho}(f,g)=\min\{1, \rho(f,g)\} \; \forall f,g\in \B(X,Y)$. \\ Briefly speaking, uniform metric $\overline{\rho}$ is a standard bounded metric for $\rho$ on $\B(X,Y)$
+    \item[(Ex)] By completeness of $\Real$, given any topological space $X$, $\B(X,\Real)$ is complete metric space under sup metric. Also, if $X$ is compact, then $\C(X, \Real)$ is complete under sup metric.
+    \item[*] Completion
+    \begin{itemize}
+        \item For metric space $(X,d)$, a completion $X'$ of $X$ is a complete metric space s.t. $X$ is a dense subset of $X'$
+    \end{itemize}
+    \item For a metric space $(X,d)$, there is an isometric embedding of $X$ into a complete metric space.
+    \item $X, Y$ : metric spaces. If $f:X\rightarrow Y$ is uniformly continuous, then $\{x_n\}\seq X$ is a Cauchy sequence $\Rightarrow f(\{x_n\})\seq Y$ is also a Cauchy sequence. 
+    \item $X, Y$ : metric spaces. $A\subset X$. If $Y$ is complete and $f: A\rightarrow Y$ is uniformly continuous  then $f$ can be uniquely extended to a uniformly continuous function $g : \cl{A}\rightarrow Y$ \quad \# 43.2
+    \item $X$ : metric space. $X$ is complete $\Leftrightarrow$ for every nested seq. $\{A_n\}$ of nonempty closed sets in $X$ s.t. diam$(A_n)\rightarrow 0$, the intersection $\bigcap_{n}A_n$ is a one point set. \quad \# 43.4
+    \item Fixed point of contraction map in complete metric space \quad \# 43.5
+	\begin{itemize}
+		\item $(X,d)$ : a metric space. $f: X\rightarrow X$. $f$ is called as a contraction map if $\exist \alpha<1 $ s.t. $d(f(x),f(y))\leq \alpha d(x,y) \quad \forall x,y\in X$. If $X$ is complete and $f$ is a contraction map on $X$ then $f$ has a unique fixed point \, i.e. \, $\exist ! \;x\in X$ s.t. $f(x)=x$
+	\end{itemize}
+	\item $X,Y$ : topological spaces. $e: X\times \C(X,Y) \rightarrow Y$ defined as $(x,f)\mapsto f(x)$ is called as an evaluation map. If $Y$ is metrizable with metric $d$ and $\C(X,Y)$ is equipped with uniform topology corresponding to $d$ then evaluation map $e$ is continuous. \quad \# 43.8
+	\item For a metric space $(X,d)$,\quad $X$ is compact $\Leftrightarrow X$ is complete and totally bounded.
+\end{itemize}
+\bigskip
+
+\subsection{Space-filling Curve}
+\smallskip
+\begin{itemize}
+    \item $I=[0,1]$. There is a continuous surjection $f:I\rightarrow I^2$ called ``Peano space-filling curve''.
+    \item There is a continuous surjection from $\Real$ to $\Real^n$ for any $n\in \Nat$ \quad \# 44.2
+    \item[(Ex)] There is a continuous surjective map from a circle $S^1$ to $S^1\times S^1$ \; \# Final Test0
+\end{itemize}
+\bigskip
+
+\subsection{Pointwise, Uniform, and Compact Convergence}
+\smallskip
+\begin{itemize}
+	\item Recall that on a function space $Y^X$, where $X$ is a set and $Y$ is a metric space, we can impose a uniform topology which is a metric topology induced by uniform metric $\overline{\rho}$ or sup metric $\rho$. We've known that $f_n\rightarrow f$ in $Y^X$ w.r.t. uniform topology $\Leftrightarrow f_n\rightrightarrows f$ uniformly.
+	\item[*] Topology of Pointwise convergence
+	\begin{itemize}
+		\item $X$ : a set. $Y$ : a topological space. Define $S(x, \U)=\{f : f\in Y^X, f(x)\in \U\}$ for each $x\in X$ and $\U\open Y$. The topology of pointwise convergence is a topology on $Y^X$ is generated by a subbasis $\mathcal{S}=\{S(x, \U):x\in X,\, \U\open Y\}$
+		\item[\rmk] Typical basis element of this topology containing some $f\in Y^X$ is all functions that are close to $f$ at finitely many points.
+		\item[\rmk] We can represent $f\in Y^X$ as $f=(f(x))_{x\in X}$ and with this notation, \\$S(x, \U)=\{f : f=(f(x))_{x\in X}, \, \pi_{x}(f)\in \U\}=\pi_{x}^{-1}(\U)$ , which is a standard subbasis element for the product topology on $Y^X$. Thus the topology of pointwise convergence on $Y^X$ is just the product topology we've already known.
+	\end{itemize}
+	\item $f_n\rightarrow f$ in $Y^X$ in $Y^X$ w.r.t. topology of pointwise convergence $\Leftrightarrow f_n\rightarrow f$ pointwise.
+	\item[\rmk] Under the topology of pointwise convergence, the limit function of sequence of continuous functions need not be continuous.
+	\item[*] Topology of compact convergence
+	\begin{itemize}
+		\item $X$ : a topological space. $(Y,d)$ : a metric space. For each $f\in Y^X$, $C\subset X$ compact and $\epsilon>0$, define $B_C(f, \epsilon)=\{g : g\in Y^X,\;\sup\{d(f(x), g(x)):x\in C\}<\epsilon\}$. The topology of compact convergence is a topology on $Y^X$ is generated by a basis $\B=\{B_c(f, \epsilon) : f\in Y^X, C\subset X$ compact, $ \epsilon>0 \}$
+		\item[\rmk] Typical basis element of this topology containing some $f\in Y^X$ is all functions that are close to $f$ uniformly on some compact set $C$. 
+	\end{itemize}
+	\item $f_n\rightarrow f$ in $Y^X$ w.r.t. topology of compact convergence $\Leftrightarrow f_n\rightrightarrows f$ uniformly on $C$ for every compact $C\subset X$.  
+	\item[*] Compactly generated space.
+	\begin{itemize}
+		\item $X$ : topological space. $X$ is said to be compactly generated if \\ $A\open X \Leftrightarrow A\;\cap \;C\open C$ for every compact $C\subset X$ or equivalently \\ $B\closed \Leftrightarrow B\; \cap \; C \closed C$ for every compact $C\subset X$
+	\end{itemize} 
+	\item Every locally compact or first countable space is compactly generated.
+	\item If $X$ is compactly generated then $f:X\rightarrow Y$ is continuous $\Leftrightarrow f|_C : C\rightarrow Y$ is continuous for every compact $C\subset X$
+	\item $X$ : compactly generated space. $Y$ : a metric space. Then $\C(X,Y)\closed Y^X$ given the topology of compact convergence, so that under the topology of compact convergence, the limit function of sequence of continuous functions is continuous.
+	\item $X$ : a topological space. $Y$ : a metric space. For the function space $Y^X$, we have the following inclusions of topologies as below : \\ (Top. of pointwise convergence) $\subset$ (Top. of compact convergence) $\subset$ (Uniform top.) \\ If $X$ is compact then compact convergence topology and uniform topology are the same.
+	\item[\rmk] `More open sets' makes `convergence of sequence' much harder.
+	\item[(Ex)] $\{f_n : (-1,1)\rightarrow \Real \}$ is a seq. of functions defined as $f_n(x)=\sum_{k=1}^n kx^k$. $f_n$ converges to $f$ defined as $f(x)=\frac{x}{(1-x)^2}$ in compact convergence topology while $f_n$ does not converge in uniform topology. \quad \# 46.5
+	\item[*]Compact-open topology
+	\begin{itemize}
+		\item $X, Y$ : topological spaces. Define $S(C, \U)=\{f : f\in \C(X, Y), \; f(C)\subset \U\}$ for each $C\subset X$ compact and $\U\open Y$. The compact-open topology is a topology on $\C(X,Y)$ generated by a subbasis $\mathcal{S}=\{S(C, \U): C\subset X$ compact,\; $\U\open Y \}$
+	\end{itemize}
+	\item[\rmk] Definition of uniform topology and compact convergence topology appeals to the metric on space $Y$. The compact-open topology is a natural topology on $\C(X,Y)$ which is purely topological, not involving any metric.
+	\item $X$ : a topological space. $Y$ : a metric space. On $\C(X,Y)$, the compact-open topology and the comopact convergence topology are the same.  
+	\item[\rmk] If $Y$ is metrizable then the compact convergence topology on $\C(X,Y)$ does not depend on the metric we choose. For example, if $Y$ is Euclidean space, then choosing Euclidean metric or square metric does not change the compact convergence topology on $\C(X, \Real^n)$. Additionally, if $X$ is compact and $Y$ is metrizable then the uniform topology on $\C(X,Y)$ does not depend on the metric we choose.
+	\item If $X$ is locally compact Hausdorff and $\C(X,Y)$ is equipped with compact-open topology then the evaluation map $e:X\times \C(X,Y)\rightarrow Y$ defined by $(x,f)\mapsto f(x)$ is continuous.
+	\item[\rmk] Taking a slice, for a fixed $x\in X$, if $f$ and $g$ in $\C(X,Y)$ are closed w.r.t. compact-open topology then $f(x)$ and $g(x)$ are close in $Y$.
+	\item $X, Y$ : topoogical spaces. Given $f:X\times Z\rightarrow Y$, there is an induced map\\ $F: Z\rightarrow \C(X,Y) \quad z\mapsto F(z)$ where $F(z):X\rightarrow Y \quad x\mapsto f(x,z) $. Conversely, given $F: Z\rightarrow \C(X,Y)$, there is an induced function $f:X\times Z\rightarrow Y$ defined as $(x,z)\mapsto F(z)(x)$. Suppose $\C(X,Y)$ is equipped with compact-open topology. Then 
+	\begin{enumerate}
+		\item If $f$ is continuous then induced $F$ is continuous.
+		\item The converse also holds true provided $X$ is locally compact Hausdorff.
+	\end{enumerate}
+	\item $X, Y, Z$ : topological spaces. If $\C(X,Y), \C(Y,Z)$ and $\C(X,Z)$ are equipped with compact-open topology and $Y$ is locally compact Hausdorff then composition mapping \\ $\circ : \C(X,Y)\times \C(Y,Z)\rightarrow \C(X,Z)\quad (f,g)\mapsto g\circ f$ \; is continuous. \quad  \# 46.7
+	\item Define an oscillation map by $osc :C(I, \Real)\rightarrow \Real$ \quad $f\mapsto \max_{x\in I}f(x) -\min_{x\in I}f(x)$ where $I$ is a compact interval in $\Real$. If $\C(I, \Real)$ is equipped with a compact-open topology then the oscillation map is continuous.
+\end{itemize}
+\bigskip
+\hspace{3cm}
+
+\section{Baire Spaces}
+\bigskip
+We introduce a class of topological spaces called Baire space. Many spaces we've learned in this course are Baire spaces. The defining condition of Baire space is quite unnatural, but it can be a very useful tool in Analysis and Topology.
+\begin{itemize}
+	\item Recall that for $A\subset X$, $\cl{X\diff A}=X\diff A^0$ holds true because of optimality in definition of closure and interior. Hence $A$ has empty interior $\Leftrightarrow X\diff A$ is dense in $X$
+	\item[(Ex)] $\mathbb{Q}$ has empty interior because $\Real \diff \mathbb{Q}$ is dense in $\Real$.\\ $[0,1]\times \{0\}$ is has empty interior as a subset of $\Real^2$. \quad $\mathbb{Q}\times \Real $ has empty interior.
+	\item[*] Baire Space
+	\begin{itemize}
+		\item A topological space $X$ is said to be a Baire space if 
+		\begin{itemize}
+			\item Given any countable collection $\{A_n\}$ of closed subsets of $X$ where each one has empty interior, their union $\bigcup_{n}A_n$ has empty interior. (Closed set formulation)
+			\item Given any countable collection $\{\U_n\}$ of open subsets of $X$ where each one is dense in $X$, their intersection $\bigcap_{n}\U_n$ is dense in $X$. (Open set formulation)
+		\end{itemize}
+		Two conditions above are equibalent.
+	\end{itemize} 
+	\item[(Ex)] $\mathbb{Q}$ is not a Baire space. \quad $\Nat$ is a Baire space. \quad $\Real \diff \mathbb{Q}$ is a Baire space. \; \# 48.6
+	\item Baire category theorem
+	\begin{itemize}
+		\item If $X$ is a compact Hausdorff space or a complete metric space then $X$ is a Baire space.
+	\end{itemize}
+	\item Every open subspace of a Baire space is also a Baire space.
+	\item[(Ex)] Euclidean space is a Baire space since it is complete metric space. Closed subspace of complete space is also complete so every closed subspace of Euclidean space is a Baire space. Also every open subspace of Euclidean space is a Baire space. Note that since locally compact Hausdorff space is homeomorphic to open subspace of compact Hausdorff space, every locally compact Hausdorffspace is a Baire space.
+	\item If $X$ is a compact Hausdorff space or a complete metric space then every $G_\delta$ set in $X$ equipped with subspace topologoy is a Baire space. \quad \# 48.5 
+\clearpage
+	\item How discontinuous the pointwise limit function of seq. of continuous function can be
+	\begin{itemize}
+		\item $X$ : a topological space. $Y$ : a metric space. $\{f_n : X\rightarrow Y\}$ is a sequence of continuous functions having pointwise limit $f:X\rightarrow Y$. If $X$ is a Baire space then the continuity set $C_f=\{x\in X : f$ is continuous at $x\}$ is dense in $X$.
+	\end{itemize}
+	\item If $D$ is a countable dense subset of $\Real$ then there is no function $f:\Real\rightarrow \Real $ which is continuous precisely on $D$. \quad \# 48.7
+	\item If  $\{f_n : \Real \rightarrow \Real\}$ is a sequence of continuous functions having pointwise limit $f:\Real\rightarrow \Real$ then $f$ is continuous at uncountably many points of $\Real$. \quad \#48.8
+	\item[(Ex)] $f: \Real \rightarrow \Real$ defined as $f(x)=\begin{cases}1/n & x\in \mathbb{Q}\, \cap\, (0,1)=\{q_n\}_{n\in \Nat}, \; x = q_n\\0 & x \notin \mathbb{Q}\,\cap\,(0,1) \end{cases}$ \\ which is called as ``salt and pepper function''. $f$ is continuous at every irrational and not continuous at every rational, as we proved in Analysis course. On the other hand, there is no function $g: \Real \rightarrow \Real$ s.t. $g$ is continuous at every rational and not continuous at every irrational.
+\end{itemize}
+
+
+
+\end{document}
