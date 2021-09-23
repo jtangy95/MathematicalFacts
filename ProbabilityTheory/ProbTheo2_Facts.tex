@@ -167,7 +167,8 @@
 	\end{itemize}
 	\item[*] Conditional probability 
 	\begin{itemize}
-		\item For $A\in \F_0$ and a sub $\sigma$-field $\F\subset \F_0$, we define $P(A|\F):=E[I_A|\F]$
+		\item For $A\in \F_0$ and a sub $\sigma$-field $\F\subset \F_0$, define $P(A|\F):=E[I_A|\F]$
+		\item For $A,B\in \F_0$, define $P(A|B)=P(A\intersect B)\,/ P(B)$
 	\end{itemize}
 	\item Elementary properties of conditional expectation
 	\begin{itemize}
@@ -179,6 +180,7 @@
 			\item $\Omega=\bigcup_{i=1}^\infty \Omega_i$ is a partition of $\Omega$ with $\Omega_i\in \F_0$ and $P(\Omega_i)>0\quad \forall \, i\in \N$ \\ $\F=\sigma\{\Omega_1, \Omega_2,\cdots\}=\{\bigcup_{j\in \kappa} \Omega_j : \kappa\subset \N\}$ \quad ($\F$ is a $\sigma$-field). \quad Then we have 
 			$$ E[X|\F]=\sum_{i=1}^\infty a_i I_{\Omega_i} \quad with \quad a_i=\frac{E[XI_{\Omega_i}]}{P(\Omega_i)}$$
 			\begin{itemize}
+				\item[\rmk] For $A\in \F_0$, \, $P(A|\F)=P(A|\Omega_i)I_{\Omega_i}$
 				\item[\trick] Lemma : If $Z\in \F$ for such $\F$, then we can write $Y=\sum_{i=1}^\infty c_i I_{\Omega_i}$ where $c_i\in \R$
 			\end{itemize}
 			\item $E[aX+bY|\F]=aE[X|\F]+bE[Y|\F]\quad \forall a,b\in \R$
@@ -199,6 +201,7 @@
 		\item $(\Omega, \F_0, P)$ : a probability space.\; $\F\subset \F_0$ : a sub $\sigma-$field
 		\begin{enumerate}
 			\item (MCT) If $X_n\geq 0$ and $X_n\nearrow X\; a.s.$ with $E(X)<\infty$ then $E[X_n|\F]\nearrow E[X|\F]\;\, a.s.$
+			\item[\sq] If $Y_n\searrow Y\; a.s.$ with $E|Y_1|,\, E|Y|<\infty$ then $E[Y_n|\F]\searrow E[Y|\F]\;\, a.s.$
 			\item (DCT) If $|X_n|\leq Y,\,\; E(Y)<\infty$ and $X_n\rightarrow X\; a.s.$ then $E[X_n|\F]\rightarrow E[X|\F]\;\,a.s.$
 			\begin{itemize}
 				\item[\trick] Lemma : For integrable r.v. $Z$, we have $E[E(Z|\F)]=E[Z]$
@@ -245,6 +248,11 @@
 		\item A random variable $X$ and a $\sigma$-field $\F$ are said to be independent if $\sigma(X)$ and $\F$ are independent
 	\end{itemize}
 	\item If an integrable random variable $X$ and a $\sigma$-field $\F$ are independent then $E[X|\F]=E[X]$ 
+	\item[\sq] Two extreme cases of conditional expectations w.r.t information
+	\begin{itemize}
+		\item Perfect information : If $X\in \F$ then $E[X|\F]=X$
+		\item No information : If $X \indep \F$ then $E[X|\F]=E[X]$
+	\end{itemize} 
 	\item[*] Conditional variance
 	\begin{equation*}
 		Var(X|\F):=E[\{X-E[X|\F]\}^2|\F] = E[X^2|\F]-E^2[X|\F]
