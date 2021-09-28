@@ -72,6 +72,7 @@
 \clearpage
 
 \section{Conditional Expectation}
+\smallskip
 \begin{itemize}
     \item Projection Thm for Hilbert Space
     \begin{itemize}
@@ -259,7 +260,75 @@
 	\end{equation*}
 	Conditional variance is defined for $X\in \LL^2$
 	
+\end{itemize}
+\clearpage 
+
+\section{Martingales}
+\smallskip
+\begin{itemize}
+	\item[*] Definition needed for martingales
+	\begin{itemize}
+		\item Given a probability space $(\Omega, \F, P)$, increasing sequence of sub $\sigma$-fields $\{\F_n\}_{n=0}^\infty$ is called a filtration.
+		\item A random sequence $\{X_n\}_{n=0}^\infty$ is said to be adapted to $\{\F_n\}$ if $X_n\in \F_n \foranyn\cup\{0\}$
+	\end{itemize} 
+	\item[*] Definition of martingale and their cousins
+	\begin{itemize}
+		\item $\{X_n\}_{n=0}^\infty$ : a random sequence. $\{\F_n\}_{n=0}^\infty$ : a filtration. Assume $E|X_n|<\infty \foranyn\cup\{0\}$ and $\{X_n\}$ is adapted to $\{\F_n\}$. Then $\{X_n\}$ is said to be a martingale (w.r.t $\{\F_n\}$) if $E[X_{n+1}|\F_n]=X_n\foranyn\cup\{0\}$
+		\item $\{X_n\}$ is said to be a submartingale (w.r.t $\{\F_n\}$) if $E[X_{n+1}|\F_n]\geq X_n\foranyn\cup\{0\}$
+		\item $\{X_n\}$ is said to be a supermartingale (w.r.t $\{\F_n\}$) if $E[X_{n+1}|\F_n]\leq X_n\foranyn\cup\{0\}$
+		\item[\rmk] These are abbreviated to `mtg', `submtg', `supermtg' respectively.
+	\end{itemize} 
+	\item Examples of martingales
+	\begin{enumerate}
+		\item $\{\xi_n\}_n\; i.i.d\;$ with $E(\xi_1)=0$. $X_0=0\;.\; X_n=\xi_1+\cdots +\xi_n$ and $\F_0=\{\phi, \Omega\}\;.\;\\ \F_n=\sigma(\xi_1, \cdots, \xi_n)$. Then $\{X_n\}$ is a martingale w.r.t $\{\F_n\}$
+		\begin{itemize}
+			\item[\trick] Trick : $E[Z]$ is finite $\Leftrightarrow Z$ is integrable. ($\because$ the definition of expectation)
+		\end{itemize}
+		\item Adding assumption $Var(\xi_1)=\sigma^2<\infty$ to \romannumeral 1 . above. \\Then $\{X_n-n\sigma^2\}$ is a martingale w.r.t $\{\F_n\}$
+		\item $\{\varepsilon_n\}_n\; i.i.d\;\sim (0,1)$. $X_0=0\;.\; X_{n+1}=X_n+h(X_n)\varepsilon_{n+1}$ with $h:\R\rightarrow \R$ Borel function s.t. $E|h(X_n)|<\infty\foranyn\cup\{0\}$ and $\F_0=\{\phi, \Omega\}\;.\; \F_n=\sigma(\varepsilon_1, \cdots, \varepsilon_n)$ \\ Then $\{X_n\}$ is a martingale w.r.t $\{\F_n\}$
+		\item $\{\varepsilon_n\}_n\; i.i.d\; \sim (0,1)$. $Y_0=0\;. \; Y_{n+1}=\phi(Y_n)\varepsilon_{n+1}$ with $\phi(y)=w+\alpha y^2\;(w>0, \, 0\leq \alpha<1)$ and $E[\phi(Y_n)]<\infty \foranyn$. and $\F_0=\{\phi, \Omega\}\;.\; \F_n=\sigma(\varepsilon_1, \cdots, \varepsilon_n)$. \\Let $X_0=0\;.\; X_n=Y_1+\cdots Y_n$. Then $\{X_n\}$ is a martingale w.r.t $\{\F_n\}$
+		\begin{itemize}
+			\item[\rmk] Such $\{Y_n\}$ is called as ARCH (autoregressive conditional heteroskedasticity) process
+		\end{itemize}
+	\end{enumerate}
+	\item Elementary facts about Martingales
+	\begin{itemize}
+		\item Every martingale is a submartingale and a supermartingale
+		\item If $\{X_n\}$ is a submartingale then $\{-X_n\}$ is a supermartingale
+		\begin{itemize}
+			\item[\rmk] We develop theory about martingales often assuming submartingale since every martingale is submartingale and every supermartingale is negative version of submartingale
+		\end{itemize}
+		\item If $\{X_n\}$ is a martingale w.r.t $\{\F_n\}$ then $E[X_n|\F_m]=X_m$ whenever $n\geq m$
+		\item If $\{X_n\}$ is a submartingale w.r.t $\{\F_n\}$ then $E[X_n|\F_m]\geq X_m$ whenever $n\geq m$
+		\item If $\{X_n\}$ is a supermartingale w.r.t $\{\F_n\}$ then $E[X_n|\F_m]\leq X_m$ whenever $n\geq m$
+	\end{itemize}
+
+	\item Convex transformation of martingale
+	\begin{itemize}
+		\item If $\{X_n\}$ is a martingale w.r.t $\{\F_n\}$ and $\phi:\R\rightarrow \R$ is a convex function s.t. \\$E|\phi(X_n)|<\infty\foranyn$ then $\{\phi(X_n)\}$ is a submartingale w.r.t $\{\F_n\}$
+		\item If $\{X_n\}$ is a submartingale w.r.t $\{\F_n\}$ and $\phi:\R\rightarrow \R$ is a convex and increasing function s.t. $E|\phi(X_n)|<\infty\foranyn$ then $\{\phi(X_n)\}$ is a submartingale w.r.t $\{\F_n\}$
+		\item If $\{X_n\}$ is a supermartingale w.r.t $\{\F_n\}$ and $\phi:\R\rightarrow \R$ is a concave and increasing function s.t. $E|\phi(X_n)|<\infty\foranyn$ then $\{\phi(X_n)\}$ is a supermartingale w.r.t $\{\F_n\}$
+		\item[(Ex)] If $\{X_n\}$ is a martingale and $E[|X_n|^p]<\infty$ for some $p\geq1$ , then $\{|X_n|^p\}$ is a submartingale
+		\item[(Ex)] If $\{X_n\}$ is a submartingale then for any $a\in \R$, $\{(X_n-a)^+\}$ is a submartingale 
+		\item[(Ex)] If $\{X_n\}$ is a supermartingale then for any $a\in \R$, $\{X_n\wedge a\}$ is a supermartingale 
+	\end{itemize}
+
+	\item[*] Predicatable sequence and a process using it
+	\begin{itemize}
+		\item For a filtration $\{\F_n\}_{n=0}^\infty$, a random sequence $\{H_n\}_{n=1}^\infty$ is said to be a predicatable sequence (w.r.t $\{\F_n\}$) if $H_n\in \F_{n-1}\foranyn$
+		\begin{itemize}
+			\item[\rmk] A letter $H$ stands for a `height'
+		\end{itemize}
+		\item Suppose $\{X_n\}$ is a martingale w.r.t $\{\F_n\}$. For a predicatable sequence $\{H_n\}$ (w.r.t $\{\F_n\}$), we define a process $\{(H\cdot X)_n\}$ by $$(H\cdot X)_n=\sum_{m=1}^n H_m(X_m-X_{m-1}) $$
+		\begin{itemize}
+			\item[\rmk] Note that $\{(H\cdot X)_n\}$ is adapted to $\{\F_n\}$
+		\end{itemize}
+	\end{itemize}
+	
+	 
+
 
 
 \end{itemize}
+
 \end{document}
