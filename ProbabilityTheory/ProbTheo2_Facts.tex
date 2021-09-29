@@ -11,6 +11,8 @@
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
+\usepackage{graphicx}
+\graphicspath{ {./images/} }
 \usepackage{hyperref}
 \hypersetup{
 	colorlinks=true,
@@ -319,12 +321,51 @@
 		\begin{itemize}
 			\item[\rmk] A letter $H$ stands for a `height'
 		\end{itemize}
-		\item Suppose $\{X_n\}$ is a martingale w.r.t $\{\F_n\}$. For a predicatable sequence $\{H_n\}$ (w.r.t $\{\F_n\}$), we define a process $\{(H\cdot X)_n\}$ by $$(H\cdot X)_n=\sum_{m=1}^n H_m(X_m-X_{m-1}) $$
+		\item Suppose $\{X_n\}$ is adapted to $\{\F_n\}$. For a predicatable sequence $\{H_n\}$ (w.r.t $\{\F_n\}$), we define a process $\{(H\cdot X)_n\}$ by $$(H\cdot X)_n=\sum_{m=1}^n H_m(X_m-X_{m-1}) $$
 		\begin{itemize}
 			\item[\rmk] Note that $\{(H\cdot X)_n\}$ is adapted to $\{\F_n\}$
 		\end{itemize}
 	\end{itemize}
-	
+	\item Elementary facts about martingale transform 
+	\begin{itemize}
+		\item Let $\{X_n\}_{n=0}^\infty$ and $\{H_n\}_{n=1}^\infty$ be a random sequence and $\{H_n\}$ is a predicatable sequence w.r.t. a filtration $\{\F_n\}_{n=0}^\infty$. Assume $E|X_nH_n|<\infty\;,\; E|X_{n-1}H_n|<\infty\foranyn$
+		\begin{enumerate}
+			\item If $\{X_n\}$ is a martingale (w.r.t $\{\F_n\}$) then $\{(H\cdot X)_n\}$ is also a martingale
+			\item If $\{X_n\}$ is a submartingale (w.r.t $\{\F_n\}$) and $H_n\geq 0$ then $\{(H\cdot X)_n\}$ is also a submartingale
+			\item If $\{X_n\}$ is a supermartingale (w.r.t $\{\F_n\}$) and $H_n\geq 0$ then $\{(H\cdot X)_n\}$ is also a supermartingale
+		\end{enumerate}
+	\end{itemize}
+	\item[*] Stopping time
+	\begin{itemize}
+		\item A (extended) random variable $N$ taking values of $\N\cup\{0,\infty\}$ is said to be a stopping time (w.r.t a filtration $\{\F_n\}$) if an event $(N=n)\in \F_n\foranyn$
+		\begin{align*}
+			(N\leq n)&=\bigcup_{j=0}^n (N=j) \in \F_n	&	(N>n)&=(N\leq n)^C\in \F_n \\
+			(N<n)&=\bigcup_{j=0}^{n-1} (N=j) \in \F_{n-1}	& (N\geq n)&=(N<n)^C\in \F_{n-1}
+		\end{align*}
+		\item $(N\geq n)$ is a $\F_{n-1}$-measurable event. $\;I(N\geq n)$ is $\F_{n-1}$-measurable random variable. \\ Hence, $\{I(N\geq n)\}_n$ is a predictable sequence given $N$ is a stopping time.
+	\end{itemize} 
+	\item Martingale stopped by stopping time
+	\begin{itemize}
+		\item Let $\{X_n\}$ be a random sequence adapted to $\{\F_n\}$. Let $N$ be a stopping time w.r.t $\{\F_n\}$ and put $H_n=I(N\geq n)\foranyn\;$. Then $(H\cdot X)_n=X_{N\wedge n}-X_0$. 
+		\item The process $\{X_{N\wedge n}\}_n$ is said to be a martingale stopped by stopping time $N$ , provided $\{X_n\}$ is a martingale.
+		\begin{itemize}
+			\item[\trick] If $\{X_n\}$ and $\{Y_n\}$ are martingales (w.r.t. $\{\F_n\}$) then $\{X_n+Y_n\}$ is also a martingale. The same holds for submartingales and supermartingales too.
+		\end{itemize}
+		\item If $\{X_n\}$ is a martingale and $N$ is a stopping time then $\{X_{N\wedge n}\}$ is martingale.
+		\item If $\{X_n\}$ is a submartingale and $N$ is a stopping time then $\{X_{N\wedge n}\}$ is submartingale.
+		\item If $\{X_n\}$ is a supermartingale and $N$ is a stopping time then $\{X_{N\wedge n}\}$ is supermartingale.
+	\end{itemize} 
+	\item Example of stopping time
+	\begin{itemize}
+		\item Suppose $\{X_n\}_{n=0}^\infty$ is a submartingale w.r.t $\{\F_n\}$. Let $a<b$. Define $N_j$'s as below :
+		\begin{align*}
+			N_1 &= \inf\{m\geq 0\, :\, X_m\leq a\}  &  N_2&=\inf\{m>N_1\, :\, X_m\geq b \} \\ N_3 &= \inf\{m>N_2\, :\, X_m\leq a\}  &  N_4&=\inf\{m>N_3\, :\, X_m\geq b \} \\ &\vdots	&	&\vdots \\ N_{2k-1}&=\inf\{m>N_{2k-2}\, :\, X_m\leq a\}	& N_{2k}&=\inf\{m>N_{2k-1}\,:\, X_m\geq b\} \\ &\vdots	&	&\vdots
+		\end{align*}
+		\includegraphics{StoppingTime.png}
+		\item Every $N_j$ for $j\in \N$ is stopping time w.r.t $\{\F_n\}$. $N_1<N_2<N_3\cdots$ provided all $N_j$'s are finite. (It is possible that $N_j=\infty$ provided it has a form of $\inf(\phi)$)
+		\item `Upcrossing' is a case where the submartingale $\{X_n\}$ crosses from below $a$ to above $b$.
+		\item $\U_n:=\sup\{k\,:\, N_{2k}\leq n\}$ is the number of upcommings completed by time $n$
+	\end{itemize}
 	 
 
 
