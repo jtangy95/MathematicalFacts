@@ -194,6 +194,7 @@
 			\item $X\leq Y \Rightarrow E[X|\F]\leq E[Y|\F]\quad a.s$.
 			\item $\big|E[X|\F]\big|\leq E\big[|X| \,\big| \F\big]$
 			\item $E[|X| \, |\F]=0\; \Rightarrow \;X=0 \quad a.s.$
+			\item $E[E[X|\F]]=E[X]$
 		\end{enumerate}
 	\end{itemize}
 	\item $X, Y$ : integrable r.v's where $X\indep Y$.\; $\psi :\R^2\rightarrow \R$ Borel measurable s.t. $E|\psi(X, Y)|<\infty$ \\ Define $g:\R\rightarrow \R$ by $g(x)=E[\psi(x, Y)]\quad \forall\, x\in \R$. \quad Then $E[\psi(X,Y)|X]=g(X)$
@@ -207,9 +208,6 @@
 			\item (MCT) If $X_n\geq 0$ and $X_n\nearrow X\; a.s.$ with $E(X)<\infty$ then $E[X_n|\F]\nearrow E[X|\F]\;\, a.s.$
 			\item[\sq] If $Y_n\searrow Y\; a.s.$ with $E|Y_1|,\, E|Y|<\infty$ then $E[Y_n|\F]\searrow E[Y|\F]\;\, a.s.$
 			\item (DCT) If $|X_n|\leq Y,\,\; E(Y)<\infty$ and $X_n\rightarrow X\; a.s.$ then $E[X_n|\F]\rightarrow E[X|\F]\;\,a.s.$
-			\begin{itemize}
-				\item[\trick] Lemma : For integrable r.v. $Z$, we have $E[E(Z|\F)]=E[Z]$
-			\end{itemize}
 			\item (Continuity from below) $\{B_n\}\seq \F_0$ s.t. $B_n\subset B_{n+1}\foranyn$. \;$B:=\bigcup_n B_n$ \\ Then $P(B_n|\F)\nearrow P(B|\F)$
 			\item (Countable additivity) If $\{C_n\}\seq \F_0$ is mutually disjoint then $P(\bigcup_n C_n|\F)=\sum_n P(C_n|\F)$     
 		\end{enumerate} 
@@ -304,6 +302,9 @@
 		\item If $\{X_n\}$ is a martingale w.r.t $\{\F_n\}$ then $E[X_n|\F_m]=X_m$ whenever $n\geq m$
 		\item If $\{X_n\}$ is a submartingale w.r.t $\{\F_n\}$ then $E[X_n|\F_m]\geq X_m$ whenever $n\geq m$
 		\item If $\{X_n\}$ is a supermartingale w.r.t $\{\F_n\}$ then $E[X_n|\F_m]\leq X_m$ whenever $n\geq m$
+		\item If $\{X_n\}$ is a martingale w.r.t $\{\F_n\}$ then $\{E[X_n]\}$ is constant.
+		\item If $\{X_n\}$ is a submartingale w.r.t $\{\F_n\}$ then $\{E[X_n]\}$ is increasing.
+		\item If $\{X_n\}$ is a supermartingale w.r.t $\{\F_n\}$ then $\{E[X_n]\}$ is decreasing.
 	\end{itemize}
 
 	\item Convex transformation of martingale
@@ -335,6 +336,7 @@
 			\item If $\{X_n\}$ is a submartingale (w.r.t $\{\F_n\}$) and $H_n\geq 0$ then $\{(H\cdot X)_n\}$ is also a submartingale
 			\item If $\{X_n\}$ is a supermartingale (w.r.t $\{\F_n\}$) and $H_n\geq 0$ then $\{(H\cdot X)_n\}$ is also a supermartingale
 		\end{enumerate}
+		\item[\rmk] The condition ``$E|X_nH_n|<\infty\;,\; E|X_{n-1}H_n|<\infty\foranyn$'' can be replaced with ``For each $n\in \N, \;H_n$ is bounded''.
 	\end{itemize}
 	\item[*] Stopping time
 	\begin{itemize}
@@ -356,7 +358,7 @@
 		\item If $\{X_n\}$ is a submartingale and $N$ is a stopping time then $\{X_{N\wedge n}\}$ is submartingale.
 		\item If $\{X_n\}$ is a supermartingale and $N$ is a stopping time then $\{X_{N\wedge n}\}$ is supermartingale.
 	\end{itemize} 
-	\item Example of stopping time
+	\item Stopping time and Upcrossing
 	\begin{itemize}
 		\item Suppose $\{X_n\}_{n=0}^\infty$ is a submartingale w.r.t $\{\F_n\}$. Let $a<b$. Define $N_j$'s as below :
 		\begin{align*}
@@ -367,6 +369,17 @@
 		\item `Upcrossing' is a case where the submartingale $\{X_n\}$ crosses from below $a$ to above $b$.
 		\item $\U_n:=\sup\{k\,:\, N_{2k}\leq n\}$ is the number of upcommings completed by time $n$
 	\end{itemize}
+	\item Upcrossing inequality
+	\begin{itemize}
+		\item Suppose $\{X_n\}$ is a submartingale w.r.t $\{\F_n\}$. If stopping time $N_j$ and the number of upcrossings $\U_n$ are defined as above then $$(b-a)E[\,\U_n]\leq E[(X_n-a)^+]-E[(X_0-a)^+]$$ 
+	\end{itemize}
+	\item Submartingale convergence theorem
+	\begin{itemize}
+		\item If $\{X_n\}$ is a submartingale w.r.t $\{\F_n\}$ with $\sup_n E(X_n^+)<\infty$ then $X_n\rightarrow X\;\, a.s.$ for some integrable random varialbe $X$
+		\begin{itemize}
+			\item[\trick] If $X_n\rightarrow X\;\, a.s.$ then $X_n^+\rightarrow X^+\;\,a.s.$ and $X_n^-\rightarrow X^-\;\,a.s.$
+		\end{itemize}
+	\end{itemize} 
 	 
 
 
