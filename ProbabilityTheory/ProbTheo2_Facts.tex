@@ -31,6 +31,7 @@
 \newcommand{\rmk}{$\surd$}
 \newcommand{\trick}{$\bigstar$}
 \newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\U}{\mathcal{U}}
 \newcommand{\V}{\mathcal{V}}
@@ -208,6 +209,7 @@
 			\item (MCT) If $X_n\geq 0$ and $X_n\nearrow X\; a.s.$ with $E(X)<\infty$ then $E[X_n|\F]\nearrow E[X|\F]\;\, a.s.$
 			\item[\sq] If $Y_n\searrow Y\; a.s.$ with $E|Y_1|,\, E|Y|<\infty$ then $E[Y_n|\F]\searrow E[Y|\F]\;\, a.s.$
 			\item (DCT) If $|X_n|\leq Y,\,\; E(Y)<\infty$ and $X_n\rightarrow X\; a.s.$ then $E[X_n|\F]\rightarrow E[X|\F]\;\,a.s.$
+			\item (Fatou's lemma) If $X_n\geq 0$ and $X_n\rightarrow X\;\,a.s.$ with $E(X_n)<\infty$, $E(X)<\infty$ then $E[X|\F]\leq \liminf E[X_n|\F]$  
 			\item (Continuity from below) $\{B_n\}\seq \F_0$ s.t. $B_n\subset B_{n+1}\foranyn$. \;$B:=\bigcup_n B_n$ \\ Then $P(B_n|\F)\nearrow P(B|\F)$
 			\item (Countable additivity) If $\{C_n\}\seq \F_0$ is mutually disjoint then $P(\bigcup_n C_n|\F)=\sum_n P(C_n|\F)$     
 		\end{enumerate} 
@@ -306,7 +308,7 @@
 		\item If $\{X_n\}$ is a submartingale w.r.t $\{\F_n\}$ then $\{E[X_n]\}$ is increasing.
 		\item If $\{X_n\}$ is a supermartingale w.r.t $\{\F_n\}$ then $\{E[X_n]\}$ is decreasing.
 	\end{itemize}
-
+\clearpage
 	\item Convex transformation of martingale
 	\begin{itemize}
 		\item If $\{X_n\}$ is a martingale w.r.t $\{\F_n\}$ and $\phi:\R\rightarrow \R$ is a convex function s.t. \\$E|\phi(X_n)|<\infty\foranyn$ then $\{\phi(X_n)\}$ is a submartingale w.r.t $\{\F_n\}$
@@ -375,12 +377,18 @@
 	\end{itemize}
 	\item Submartingale convergence theorem
 	\begin{itemize}
-		\item If $\{X_n\}$ is a submartingale w.r.t $\{\F_n\}$ with $\sup_n E(X_n^+)<\infty$ then $X_n\rightarrow X\;\, a.s.$ for some integrable random varialbe $X$
+		\item If $\{X_n\}$ is a submartingale w.r.t $\{\F_n\}$ with $\sup_n E(X_n^+)<\infty$ then $X_n\rightarrow X\;\, a.s.$ for some integrable random variable$X$
 		\begin{itemize}
-			\item[\trick] If $X_n\rightarrow X\;\, a.s.$ then $X_n^+\rightarrow X^+\;\,a.s.$ and $X_n^-\rightarrow X^-\;\,a.s.$
+			\item[\trick] Trick : If $X_n\rightarrow X\;\, a.s.$ then $X_n^+\rightarrow X^+\;\,a.s.$ and $X_n^-\rightarrow X^-\;\,a.s.$
+			\item[\trick] Lemma : If the number of upcrossings of $[a,b]$ by submartingale $\{X_n\}$ is finite for any $a,b\in \Q$, then $\lim_n X_n$ exists.\; i.e. $X_n$ converges to some r.v. almost surely.
 		\end{itemize}
+		\item[\sq] If $\{X_n\}$ is a nonnegative supermartingale w.r.t $\{\F_n\}$ then $X_n\rightarrow X\;\, a.s.$ for some integrable random variable $X$ s.t. $E(X)\leq E(X_0)$
 	\end{itemize} 
-	 
+	\item Example of martingale which converges almost surely but not in $L^1$
+	\begin{itemize}
+		\item $\{\xi_n\}_n\;i.i.d$ with $P(\xi_1=1)=P(\xi_1=-1)=1/2$. Let $S_0=1,\; S_n=S_{n-1}+\xi_n$ and $\F_0=\{\phi, \Omega\}, \; \F_n=\sigma(\xi_1, \cdots, \xi_n)$. Then $\{S_n\}$ is a martingale w.r.t $\{\F_n\}$ \\ Let $N=\inf\{n\in \N : S_n=0\}$. Then $N$ is a stopping time. \\ $X_n:=S_{N\wedge n}$ so that $X_n=S_n$ if $n<N$ and $X_n=0$ if $n\geq N$. $\{X_n\}$ is a nonnegative integer valued martingale w.r.t $\{\F_n\}$.\quad $X_n\rightarrow 0\;\, a.s.$ but $X_n \nrightarrow 0$ in $\LL^1$.
+	\end{itemize}
+	\item If $\{X_n\}_{n\in \N\cup\{0\}}$ is a negative submartingale w.r.t $\{\F_n\}_{n\in \N\cup\{0\}}$ then so is $\{X_n\}_{n\in \N\cup\{0,\infty\}}$ w.r.t $\{\F_n\}_{n\in \N\cup\{0,\infty\}}$ where $X_\infty=\lim_n X_n$ and $\F_\infty= \sigma\big(\bigcup_{n=0}^\infty \F_n \big)$
 
 
 
