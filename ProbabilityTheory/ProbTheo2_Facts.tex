@@ -416,6 +416,7 @@
 		\item Let $\{\F_n\}_{n\in N\union \{0\}}$ be a filtration with $\F_0=\{\phi, \Omega\}$ . If $A_n\in \F_n\foranyn$ then $$(A_n\;\,i.o.)=\Big(\sum_{n=1}^\infty P(A_n|\F_{n-1})=\infty\Big)\;\,a.s. $$
 		\begin{itemize}
 			\item[\trick] Define ``$A=B\;\,a.s.$'' for measurable sets $A$ and $B$ by $P(A\Delta B)=0$ where $A\Delta B$ denotes the symmetric difference of two sets.
+			\item[\trick] $\sum_{k=1}^n I_{A_k}$ is a submartingale whose martingale compoenent of Doob's decomposition is $$\sum_{k=1}^n I_{A_k}-\sum_{k=1}^n\Big( E\Big[\sum_{j=1}^k I_{A_j}|\F_{k-1}\Big]-\sum_{j=1}^{k-1}I_{A_{j}}\Big)=\sum_{k=1}^n I_{A_k}-\sum_{k=1}^nP(A_k|\F_{k-1})$$ and this is the martingale we exploit in the proof of conditional B-C 2nd lemma 
 			\item[\trick] Trick : $(A_n\;\,i.o.)=\big(\sum_{n=1}^\infty I_{A_n}=\infty \big)$
 			\item[\rmk] Given $\{A_n\}$ is independent, by setting $\F_n=\sigma(A_1, \cdots, A_n)$, conditional Borel-Cantelli second lemma implies original Borel-Cantelli second lemma which is given by $$\sum_n P(A_n)=\infty \;\Rightarrow \;P(A_n\;\, i.o.)=1 $$   
 		\end{itemize}
