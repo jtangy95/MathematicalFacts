@@ -194,6 +194,9 @@
 			\end{itemize}
 			\item $X\leq Y \Rightarrow E[X|\F]\leq E[Y|\F]\quad a.s$.
 			\item $\big|E[X|\F]\big|\leq E\big[|X| \,\big| \F\big]$
+			\begin{itemize}
+				\item[\sq] $|X|\leq M$ for some $M>0 \; \Rightarrow \; \big|E[X|\F]\big|\leq M\;\,a.s.$
+			\end{itemize}
 			\item $E[|X| \, |\F]=0\; \Rightarrow \;X=0 \quad a.s.$
 			\item $E[E[X|\F]]=E[X]$
 		\end{enumerate}
@@ -328,6 +331,7 @@
 		\item Suppose $\{X_n\}$ is adapted to $\{\F_n\}$. For a predicatable sequence $\{H_n\}$ (w.r.t $\{\F_n\}$), we define a process $\{(H\cdot X)_n\}$ by $$(H\cdot X)_n=\sum_{m=1}^n H_m(X_m-X_{m-1}) $$
 		\begin{itemize}
 			\item[\rmk] Note that $\{(H\cdot X)_n\}$ is adapted to $\{\F_n\}$
+			\item[\rmk] The definition above can be extended from $\{(H\cdot X)_n\}_{n\in \N}$ to $\{(H\cdot X)_n\}_{n\in \N\union \{0\}}$ with additionally defining $(H\cdot X)_0=0$ . Obviously $(H\cdot X)_0\in \F_0$ . For the following theorems using this process, we can regard it as $\{(H\cdot X)_n\}_{n\in \N\union \{0\}}$
 		\end{itemize}
 	\end{itemize}
 	\item Elementary facts about martingale transform with predicatable sequence 
@@ -407,6 +411,38 @@
 			\item[\trick] Trick : $X_n\rightarrow X\;\,a.s.$ on $B\;\Rightarrow\; X_n\rightarrow X\;\,a.s.$ on $A$ whenever $A\subset B$ 
 		\end{itemize}
 	\end{itemize}
+	\item Conditional Borel-Cantelli second lemma
+	\begin{itemize}
+		\item Let $\{\F_n\}_{n\in N\union \{0\}}$ be a filtration with $\F_0=\{\phi, \Omega\}$ . If $A_n\in \F_n\foranyn$ then $$(A_n\;\,i.o.)=\Big(\sum_{n=1}^\infty P(A_n|\F_{n-1})=\infty\Big)\;\,a.s. $$
+		\begin{itemize}
+			\item[\trick] Define ``$A=B\;\,a.s.$'' for measurable sets $A$ and $B$ by $P(A\Delta B)=0$ where $A\Delta B$ denotes the symmetric difference of two sets.
+			\item[\trick] Trick : $(A_n\;\,i.o.)=\big(\sum_{n=1}^\infty I_{A_n}=\infty \big)$
+			\item[\rmk] Given $\{A_n\}$ is independent, by setting $\F_n=\sigma(A_1, \cdots, A_n)$, conditional Borel-Cantelli second lemma implies original Borel-Cantelli second lemma which is given by $$\sum_n P(A_n)=\infty \;\Rightarrow \;P(A_n\;\, i.o.)=1 $$   
+		\end{itemize}
+	\end{itemize}
+	\item Branching process (Galton-Watson process)
+	\begin{itemize}
+		\item Let $\{\xi_i^n\}_{i\in \N,\, n\in \N}$ be i.i.d nonnegative integer-valued random variables. \\Define a Galton-Watson process $\{Z_n\}_{n\in \N\union \{0\}}$ as below : 
+		\begin{align*}
+			Z_0 &=1 \\
+			Z_{n+1} &= \begin{cases}
+				\xi_1^{n+1}+\cdots+\xi_{Z_n}^{n+1}=\sum_{j=1}^{Z_n}\xi_j^{n+1} & \;\text{if}\quad Z_n>0 \\
+				0 & \;\text{if}\quad Z_n=0
+			\end{cases}
+		\end{align*}
+		\item[\rmk] The idea behind the definitions is that $Z_n$ is the population in the $n$-th generation and each member of the $n$-th generation gives birth independently to an identically distributed number of offspring.
+		\item $P(\xi_1^1=k)\quad \forall \;k\in\N\union\{0\}$ is called the offspring distribution. $\mu=E(\xi_1^1)$ is the expected number of offspring per individual.   
+	\end{itemize}
+	\item Properties of the branching process
+	\begin{itemize}
+		\item Let $\F_n=\sigma(\{\xi_i^m : i\in\N,\, 1\leq m\leq n\})\foranyn$ ,\, $\F_0=\{\phi, \Omega\}$ . If $\mu=E(\xi_1^1)\in (0,\infty)$ \\ then $\{Z_n/\mu^n\}$ is a martingale w.r.t $\{\F_n\}$ and $E(Z_n)=\mu^n\foranyn$
+		\item If $\mu=E(\xi_1^1)\in(0,1)$ then $Z_n=0$ for large enough $n$'s $a.s.$ \;i.e.\, the species goes extinct.
+	\end{itemize}
+	\item Inequalities for bounded stopping time
+	\begin{itemize}
+		\item If $\{X_n\}$ is a submartingale and $N$ is a stopping time with $P(N\leq K)=1$ for some $K\in \N$ then $$E(X_0)\leq E(X_N)\leq E(X_K) $$
+		\item[\rmk] Since $\{X_n\}$ is a submartingale, $E(X_0)\leq E(X_j)\leq E(X_K)$ whenever $0\leq j\leq K$ . This thm tells us that similar inequality still holds true when the index is random. 
+	\end{itemize} 
 \end{itemize}
 
 \end{document}
