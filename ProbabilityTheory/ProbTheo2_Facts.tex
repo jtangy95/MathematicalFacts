@@ -381,7 +381,7 @@
 	\end{itemize}
 	\item Submartingale convergence theorem
 	\begin{itemize}
-		\item If $\{X_n\}$ is a submartingale w.r.t $\{\F_n\}$ with $\sup_n E(X_n^+)<\infty$ then $X_n\rightarrow X\;\, a.s.$ for some integrable random variable$X$
+		\item If $\{X_n\}$ is a submartingale w.r.t $\{\F_n\}$ with $\sup_n E(X_n^+)<\infty$ then $X_n\rightarrow X\;\, a.s.$ for some integrable random variable $X$
 		\begin{itemize}
 			\item[\trick] Trick : If $X_n\rightarrow X\;\, a.s.$ then $X_n^+\rightarrow X^+\;\,a.s.$ and $X_n^-\rightarrow X^-\;\,a.s.$
 			\item[\trick] Lemma : If the number of upcrossings of $[a,b]$ by submartingale $\{X_n\}$ is finite for any $a,b\in \Q$, then $\lim_n X_n$ exists.\; i.e. $X_n$ converges to some r.v. almost surely.
@@ -393,6 +393,9 @@
 		\item $\{\xi_n\}_n\;i.i.d$ with $P(\xi_1=1)=P(\xi_1=-1)=1/2$. Let $S_0=1,\; S_n=S_{n-1}+\xi_n$ and $\F_0=\{\phi, \Omega\}, \; \F_n=\sigma(\xi_1, \cdots, \xi_n)$. Then $\{S_n\}$ is a martingale w.r.t $\{\F_n\}$ \\ Let $N=\inf\{n\in \N : S_n=0\}$. Then $N$ is a stopping time. \\ $X_n:=S_{N\wedge n}$ so that $X_n=S_n$ if $n<N$ and $X_n=0$ if $n\geq N$. $\{X_n\}$ is a nonnegative integer valued martingale w.r.t $\{\F_n\}$.\quad $X_n\rightarrow 0\;\, a.s.$ but $X_n \nrightarrow 0$ in $\LL^1$.
 	\end{itemize}
 	\item If $\{X_n\}_{n\in \N\cup\{0\}}$ is a negative submartingale w.r.t $\{\F_n\}_{n\in \N\cup\{0\}}$ then so is $\{X_n\}_{n\in \N\cup\{0,\infty\}}$ w.r.t $\{\F_n\}_{n\in \N\cup\{0,\infty\}}$ where $X_\infty=\lim_n X_n$ and $\F_\infty= \sigma\big(\bigcup_{n=0}^\infty \F_n \big)$
+	\begin{itemize}
+		\item If $\{X_n\}_{n\in \N}$ is a martingale w.r.t $\{\F_n\}_{n\in \N}$ and $X_n\rightarrow X_\infty\;\,a.s.$ then $X_\infty\in \F_\infty=\sigma(\, \bigcup_n \F_n\,)$
+	\end{itemize}
 	\item Doob's decomposition
 	\begin{itemize}
 		\item Any submartingale $\{X_n\}$ can be written as $X_n=M_n+A_n$ where $\{M_n\}$ is a martingale and $\{A_n\}$ is a predictable increasing sequence with $A_0=0$. Also, this expression is unique in the sense that if $X_n=M_n'+A_n'$ is another expression then $M_n=M_n'$ and $A_n=A_n'\;\,a.s.$
@@ -509,11 +512,68 @@
 		$$
 		\item[\rmk] Denote it as $\{X_t\}_{t\in T}\;\,u.i.$
 		\item[\rmk] A uniformly integrable family is well-controlled in the sense that if $\{X_t\}_{t\in T}\;\,u.i.$ then $\exist M>0$ s.t. $\sup_{t\in T}E|X_t|\leq M+1<\infty$
+		\item[\rmk] If $\{X_t\}_{t\in T}$ is uniformly integrable then each $X_t$ is integrable .
 	\end{itemize}
 	\item If $\{X_t\}_{t\in T}$ is dominated by a nonnegative integrable r.v. $X$ \;i.e. $|X_t|\leq X\;a.s.\quad \forall\;t\in T$ \\ then $\{X_t\}_{t\in T}$ is uniformly integrable.
 	\begin{itemize}
-		\item[\trick] Trick : If $X\geq 0$ and $E(X)<\infty$ then $\int_{X\geq a} X\,dP\rightarrow 0$ as $a\rightarrow \infty$
+		\item[\trick] Lemma: If $X$ is integrable then $\int_{|X|\geq a} |X|\,dP=E|X|I(|X|\geq a)\rightarrow 0$ as $a\rightarrow \infty$
+	\end{itemize}
+	\item Equivalent condition for uniform integrability
+	\begin{itemize}
+		\item $\{X_t\}_{t\in T}$ is uniformly integrable iff both of two conditions below are satified. 
+		\begin{enumerate}
+			\item $\sup_t E|X_t|<\infty$
+			\item $\forall \, \varepsilon>0,\, \exist \delta>0$  s.t. $\sup_t\int_A|X_t|\, dP<\varepsilon$ whenever $A\in \F$ and $P(A)<\delta$
+		\end{enumerate}
+	\end{itemize}
+	\item Elementary properties of uniform integrable family
+	\begin{itemize}
+		\item If $\{X_n\}_{n\in \N}$ and $\{Y_n\}_{n\in \N}$ are both uniformly integrable then $\{X_n+Y_n\}_{n\in \N}\;\,u.i.$ 
+		\item If $|X_n|\leq |Y_n| \foranyn$ and $\{Y_n\}_{n\in \N}$ is uniformly integrable then $\{X_n\}_{n\in \N}\;\, u.i.$
+	\end{itemize} 
+	\item Vitali's lemma
+	\begin{itemize}
+		\item For $p\geq 1$, if $\{X_n\}\seq L^p$ and $X_n\convp X$ then the followings are equivalent.
+		\begin{enumerate}
+			\item $\{{X_n}^p\}_{n\in \N}$ is uniformly integrable.
+			\item $X\in L^p\;$ and $\;X_n\rightarrow X$ in $L^p$
+			\item $E|X_n|^p\rightarrow E|X|^p<\infty$
+			\begin{itemize}
+				\item[\trick] Lemma : For a r.v. $Z$, continuity set $\{z\in \R : P(Z=z)=0\}$ is dense in $\R$
+			\end{itemize}
+		\end{enumerate}
+	\end{itemize}
+	\item If $\{X_n\}_{n\in \N}$ is uniformly integrable and $X_n\convd X$ then $E|X_n|\rightarrow E|X|$ and $E(X_n)\rightarrow E(X)$
+	\begin{itemize}
+		\item[\trick] Lemma : If $Y_n\rightarrow Y$ in $L^1$ then $E|Y_n|\rightarrow E|Y|$ and $E(Y_n)\rightarrow E(Y)$
+	\end{itemize}
+	\item[*] Regular martingale and closable martingale
+	\begin{itemize}
+		\item Let $\{X_n\}_{n\in \N\union \{0\}}$ be a martingale.
+		\begin{enumerate}
+			\item $\{X_n\}$ is said to be regular if $\exist X\in L^1$ s.t. $X_n=E[X|\F_n]\;\,a.s.\foranyn$
+			\item $\{X_n\}$ is said to be closable if $\exist X_\infty\in L^1$ s.t. $X_n\rightarrow X_\infty\;\,a.s.$ , $X_\infty\in \F_\infty$ where \\$\F_\infty=\sigma(\,\bigcup_n \F_n\,)$ and  $E[X_\infty|\F_n]=X_n\foranyn$ so that \\ $\{X_n\}_{n\in \N\union \{0, \infty\}}$ is a martingale w.r.t $\{\F_n\}_{n\in \N\union \{0, \infty \}}$ 
+			\begin{itemize}
+				\item[\rmk] Every closable martingale is regular.
+			\end{itemize}
+		\end{enumerate}
+	\end{itemize}
+	\item For a martingale $\{X_n\}_{n\in \N}$, the followings are equivalent.
+	\begin{enumerate}
+		\item $\{X_n\}$ is regular.
+		\item $\{X_n\}$ is uniformly integrable and converges $a.s.$
+		\item $\{X_n\}$ converges in $L^1$
+		\item $\{X_n\}$ is closable. 
+	\end{enumerate}
+	\item[\sq] For a martingale $\{X_n\}_{n\in \N}$ w,r,t $\{\F_n\}_{n\in \N}$
+	\begin{itemize}
+		\item If $X_n\rightarrow X$ in $L^1$ then $X_n\rightarrow X\;\, a.s.$ and $X_n=E[X|\F_n]\foranyn$
+		\item If $\{X_n\}$ is uniformly integrable then $X_n\rightarrow X\;\, a.s.$ for some integrable r.v. $X$ and $X_n=E[X|\F_n]\foranyn$
+		\item If $X_n=E[X|\F_n]$ for some integrable r.v. $X$ then $\{X_n\}$ is uniformly integrable and \\ $\exist$ integrable r.v. $X_\infty\in \F_\infty $ s.t. $E[X_\infty |\F_n]=X_n \foranyn$ and $X_n\rightarrow X_\infty\;\, a.s.$ and in $L^1$.
+	\end{itemize} 
+	\item Levy's thm
+	\begin{itemize}
+		\item If $\{\F_n\}_{n\in \N}$ is a filtration and $\F_\infty=\sigma(\,\bigcup_n \F_n\,)$ then for an integrable r.v. $X$, \\ $E[X|\F_n]\rightarrow E[X|\F_\infty]\;\,a.s.$ and in $L^1$.
 	\end{itemize} 
 \end{itemize}
-
 \end{document}
