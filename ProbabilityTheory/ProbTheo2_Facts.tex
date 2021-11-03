@@ -319,7 +319,8 @@
 		\item If $\{X_n\}$ is a supermartingale w.r.t $\{\F_n\}$ and $\phi:\R\rightarrow \R$ is a concave and increasing function s.t. $E|\phi(X_n)|<\infty\foranyn$ then $\{\phi(X_n)\}$ is a supermartingale w.r.t $\{\F_n\}$
 		\item[(Ex)] If $\{X_n\}$ is a martingale and $E[|X_n|^p]<\infty$ for some $p\geq1$ , then $\{|X_n|^p\}$ is a submartingale
 		\item[(Ex)] If $\{X_n\}$ is a submartingale then for any $a\in \R$, $\{(X_n-a)^+\}$ is a submartingale 
-		\item[(Ex)] If $\{X_n\}$ is a supermartingale then for any $a\in \R$, $\{X_n\wedge a\}$ is a supermartingale 
+		\item[(Ex)] If $\{X_n\}$ is a supermartingale then for any $a\in \R$, $\{X_n\wedge a\}$ is a supermartingale
+		\item[(Ex)] If $\{X_n\}$ is a submartingale then $\{X_n^+\}$ is a submartingale and $\{X_n^-\}$ is a supermartingale
 	\end{itemize}
 
 	\item[*] Predicatable sequence and a process using it
@@ -574,6 +575,23 @@
 	\item Levy's thm
 	\begin{itemize}
 		\item If $\{\F_n\}_{n\in \N}$ is a filtration and $\F_\infty=\sigma(\,\bigcup_n \F_n\,)$ then for an integrable r.v. $X$, \\ $E[X|\F_n]\rightarrow E[X|\F_\infty]\;\,a.s.$ and in $L^1$.
+	\end{itemize}
+	\item Conditional DCT (generalized version)
+	\begin{itemize}
+		\item Let $\{\F_n\}_{n\in \N}$ be a filtration and $\F_\infty=\sigma(\,\bigcup_n \F_n\,)$ . If $X_n\rightarrow X\;\,a.s.$ and $|X_n|\leq Z$ for some integrable r.v. $Z$ , then $E[X_n|\F_n]\rightarrow E[X|\F_\infty]\;\,a.s.$ 
 	\end{itemize} 
+	\item[*] Potential
+	\begin{itemize}
+		\item A nonnegative supermartingale $\{X_n\}$ is said to be potential if $E(X_n)\rightarrow 0$
+		\item[\rmk] If $\{X_n\}$ is potential then $\{X_n\}$ is uniformly integrable and $X_n\rightarrow 0\;\,a.s.$
+	\end{itemize} 
+	\item Riesz decomposition
+	\begin{itemize}
+		\item Let $\{X_n\}$ be a uniformly integrable nonnegative supermartingale. Then we can express $X_n$ as $X_n=M_n+V_n$ where $\{M_n\}$ is uniformly integrable martingale and $\{V_n\}$ is potential. Furthermore, such decomposition is unique. 
+	\end{itemize}
+	\item If $\{X_n\}$ is uniformly integrable submartingale, then for any stopping time $N$, stopped process $\{X_{N\wedge n}\}$ is also uniformly integrable submartingale.
+	\begin{itemize}
+		\item[\trick] Lemma : If $X_n\rightarrow X\;\, a.s.$ then $X_n^+\rightarrow X^+\;\,a.s.$ and $X_n^-\rightarrow X^-\;\,a.s.$
+	\end{itemize}
 \end{itemize}
 \end{document}

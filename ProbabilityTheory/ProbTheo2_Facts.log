@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.8.12)  2 NOV 2021 20:11
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.8.12)  3 NOV 2021 21:29
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -370,10 +370,10 @@ Overfull \hbox (22.71864pt too wide) in paragraph at lines 217--218
 <./images//StoppingTime.png, id=99, 470.75874pt x 162.6075pt>
 File: ./images//StoppingTime.png Graphic file (type png)
 <use ./images//StoppingTime.png>
-Package pdftex.def Info: ./images//StoppingTime.png  used on input line 373.
+Package pdftex.def Info: ./images//StoppingTime.png  used on input line 374.
 (pdftex.def)             Requested size: 470.7576pt x 162.6071pt.
 
-Overfull \hbox (13.83235pt too wide) in paragraph at lines 372--374
+Overfull \hbox (13.83235pt too wide) in paragraph at lines 373--375
 [] 
  []
 
@@ -390,7 +390,7 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  71i,16n,74p,619b,536s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on /Users/changtaeyeong/Desktop/MathFacts/MathematicalFacts/ProbabilityTheory/ProbTheo2_Facts.pdf (14 pages, 200266 bytes).
+Output written on /Users/changtaeyeong/Desktop/MathFacts/MathematicalFacts/ProbabilityTheory/ProbTheo2_Facts.pdf (14 pages, 201404 bytes).
 PDF statistics:
  203 PDF objects out of 1000 (max. 8388607)
  170 compressed objects within 2 object streams
