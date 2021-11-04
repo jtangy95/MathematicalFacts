@@ -443,7 +443,7 @@
 		\item Let $\F_n=\sigma(\{\xi_i^m : i\in\N,\, 1\leq m\leq n\})\foranyn$ ,\, $\F_0=\{\phi, \Omega\}$ . If $\mu=E(\xi_1^1)\in (0,\infty)$ \\ then $\{Z_n/\mu^n\}$ is a martingale w.r.t $\{\F_n\}$ and $E(Z_n)=\mu^n\foranyn$
 		\item If $\mu=E(\xi_1^1)\in(0,1)$ then $Z_n=0$ for large enough $n$'s $a.s.$ \;i.e.\, the species goes extinct.
 	\end{itemize}
-	\item Inequalities for bounded stopping time
+	\item Inequality for bounded stopping time
 	\begin{itemize}
 		\item If $\{X_n\}$ is a submartingale and $N$ is a stopping time with $P(N\leq K)=1$ for some $K\in \N$ then $$E(X_0)\leq E(X_N)\leq E(X_K) $$
 		\item[\rmk] Since $\{X_n\}$ is a submartingale, $E(X_0)\leq E(X_j)\leq E(X_K)$ whenever $0\leq j\leq K$ . This thm tells us that similar inequality still holds true when the index is random. 
@@ -484,7 +484,11 @@
 		$$
 			\F_\tau = \{A\in \F : A\intersect (\tau=n)\in \F_n \foranyn\}
 		$$
-		Note that $\F_\tau$ is indeed a $\sigma$-field. 
+		\begin{itemize}
+			\item[\rmk] Note that $\F_\tau$ is indeed a $\sigma$-field. 
+			\item[\rmk] $\tau$ is $\F_\tau$-measurable
+			\item[\rmk] If $\{X_n\}$ is adapted to $\{\F_n\}$ then $X_\tau$ is $\F_\tau$-measurable
+		\end{itemize}
 	\end{itemize}
 	\item Bounded optional stopping thm
 	\begin{itemize}
@@ -566,7 +570,7 @@
 		\item $\{X_n\}$ converges in $L^1$
 		\item $\{X_n\}$ is closable. 
 	\end{enumerate}
-	\item[\sq] For a martingale $\{X_n\}_{n\in \N}$ w,r,t $\{\F_n\}_{n\in \N}$
+	\item[\sq] For a martingale $\{X_n\}_{n\in \N}$ w.r.t $\{\F_n\}_{n\in \N}$
 	\begin{itemize}
 		\item If $X_n\rightarrow X$ in $L^1$ then $X_n\rightarrow X\;\, a.s.$ and $X_n=E[X|\F_n]\foranyn$
 		\item If $\{X_n\}$ is uniformly integrable then $X_n\rightarrow X\;\, a.s.$ for some integrable r.v. $X$ and $X_n=E[X|\F_n]\foranyn$
@@ -592,6 +596,41 @@
 	\item If $\{X_n\}$ is uniformly integrable submartingale, then for any stopping time $N$, stopped process $\{X_{N\wedge n}\}$ is also uniformly integrable submartingale.
 	\begin{itemize}
 		\item[\trick] Lemma : If $X_n\rightarrow X\;\, a.s.$ then $X_n^+\rightarrow X^+\;\,a.s.$ and $X_n^-\rightarrow X^-\;\,a.s.$
+	\end{itemize}
+	\item Inequality for unbounded stopping time
+	\begin{itemize}
+		\item If $\{X_n\}$ is uniformly integrable submartingale then for any stopping time $N$, we have \\$E(X_0)\leq E(X_n)\leq E(X_\infty)$ where $X_n\rightarrow X_\infty\;\,a.s.$
+	\end{itemize}
+	\item Optional stopping thm
+	\begin{itemize}
+		\item If $L\leq M$ are stopping times and $\{X_n\}$ is uniformly integrable submartingale then \\ $E[X_L]\leq E[X_M]$ and $X_L\leq E[X_m|\F_L]\;\,a.s.$
+	\end{itemize}
+	\item Suppose $\{X_n\}$ is a submartingale and $E\big[|X_{n+1}-X_n| \big|\F_n \big]\leq B\;\,a.s.\foranyn$ .  If $N$ is a stopping time with $E(N)<\infty$ then $\{X_{N\wedge n}\}$ is unifomly integrable and $E(X_0)\leq E(X_N)$
+	\begin{itemize}
+		\item[\rmk] Note that $E(N)<\infty$ condition implies that $N$ is almost surely finite.
+		\item[\trick] Lemma : $E|X|<\infty \Leftrightarrow \sum_n P(|X|\geq n)<\infty$ 
+	\end{itemize}
+	\item If $\{X_n\}$ is a nonnegative supermartingale and $N$ is a stopping time then $E(X_0)\geq E(X_N)$
+	\item Comment for $X_N$ with stopping time $N$ and (sub)martingale $\{X_n\}$
+	\begin{itemize}
+		\item $X_N=\sum_{n=0}^\infty X_nI(N=n)$
+		\item Note that $N$ can take value of $N=\infty$ . Thus, for $X_N$ to make sense, $N$ should be almost surely bounded or $X_\infty$ is well-defined. 
+		\item If $X_\infty$ is well-defined such that $X_n\rightarrow X_\infty\;\,a.s.$ then $X_{N\wedge n}\rightarrow X_N\;\,a.s.$
+		\item How can we figure out integrability of $X_N$ ?
+		\begin{enumerate}
+			\item If $N$ is bounded $a.s.$
+			\begin{itemize}
+				\item[-] $N\leq K\;\,a.s.$ for some $K\in \N$ . Hence $E|X_N|\leq \sum_{n=0}^K E|X_n|<\infty$
+			\end{itemize}
+			\item If $\{X_n\}$ is uniformly integrable submartingale
+			\begin{itemize}
+				\item[-] $X_n\rightarrow X_\infty\;\,a.s.\Rightarrow X_{N\wedge n}\rightarrow X_N\;\,a.s.$ \;Since $\{X_{N\wedge n}\}$ is also uniformly integrable submartingale, by Vitali lemma, $X_N\in L^1$ i.e. $X_N$ is integrable. 
+			\end{itemize}
+			\item If $\{X_n\}$ is nonengative supermartingale
+			\begin{itemize}
+				\item[-] $X_n\rightarrow X_\infty\;\,a.s.\Rightarrow X_{N\wedge n}\rightarrow X_N\;\,a.s.$ By inequality for bounded stopping time, $E[X_{N\wedge n}]\leq E[X_0]$ and using Fatou's lemma, we have $0\leq E[X_N]\leq E[X_0]<\infty$
+			\end{itemize}
+		\end{enumerate}
 	\end{itemize}
 \end{itemize}
 \end{document}
