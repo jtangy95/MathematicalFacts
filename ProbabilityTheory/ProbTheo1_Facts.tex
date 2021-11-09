@@ -551,9 +551,21 @@
 	\begin{itemize}
 		\item $\{X_n\}$ i.i.d. random seq. with mean zero and finite variance. Then $$\forall \epsilon>0,\hspace{0.2cm} \frac{S_n}{\sqrt{n}(\log n)^{\frac{1}{2}+\epsilon}}\rightarrow0 \hspace{0.3cm} a.s.$$
 	\end{itemize}
+	\item The law of iterated logarithm(L.I.L)
+	\begin{itemize}
+		\item  $\{X_n\}$ i.i.d. random seq. with mean zero and finite variance $\sigma^2$. Then 
+		\begin{align*}
+			&\limsup_n \frac{S_n}{\sqrt{2n\log\log n}\sigma}=1\;\,a.s. \\
+			&\liminf_n \frac{S_n}{\sqrt{2n\log\log n}\sigma}=-1\;\,a.s. \\
+			&\limsup_n \frac{|S_n|}{\sqrt{2n\log\log n}\sigma}=1\;\,a.s. \\
+			\forall \; \varepsilon>0,\quad &P(S_n\geq(1+\varepsilon)\sigma\sqrt{2n\log\log n}\;\,i.o.)=0 \\
+			&P(S_n\leq-(1+\varepsilon)\sigma\sqrt{2n\log\log n}\;\,i.o.)=0 	
+		\end{align*}
+	\end{itemize}
 \end{itemize}
 
-\bigskip
+\clearpage
+
 \section{Characteristic function}
 \begin{itemize}
 	\item[*] Characteristic function
@@ -584,7 +596,6 @@
 	\end{enumerate}
 	\item[$\square$] Characteristic function of $X\sim N(0,1)$ is $exp(-\frac{1}{2}t^2)$\quad  $X\sim N(\mu, \sigma)$ is $exp(i\mu t-\frac{1}{2}\sigma^2 t^2)$
 	\newline Characteristic function of $X\sim Poi(\lambda)$ is $exp(\lambda(e^{it}-1))$
-\clearpage
 	\item The Inversion formula
 	\begin{itemize}
 		\item If $\psi$ is a char. func. corresponding to a distribution $\mu$, then whenever $a<b$,\\ the equation below holds true. 
@@ -642,7 +653,6 @@
 		\lim_{n \to \infty}\frac{1}{\mathcal{D}_n^2}\sum_{k=1}^{r_n}\int_{(|X_{nk}|\geq \epsilon\mathcal{D}_n)} X_{nk}^2\,dP=0$$
 		\newline where $S_n=X_{n1}+\cdots+X_{nr_n}$ and $\mathcal{D}_n^2=Var(S_n)=\sigma_{n1}^2+\cdots+\sigma_{nr_n}^2$
 	\end{itemize}
-\clearpage
 	\item Lemma about complex numbers
 	\begin{enumerate}
 		\item $\left|\prod_{i=1}^{n}z_i-\prod_{i=1}^{n}w_i\right|\leq \sum_{i=1}^{n}|z_i-w_i|$ if $|z_i|,|w_i|\leq 1$
@@ -656,6 +666,8 @@
 		\item $\{X_{nk}:k=1,\cdots, r_n\}$ : row-wise independent double array of r.v.'s with mean zero and finite variance. $S_n=X_{n1}+\cdots+X_{nr_n}$ and $\mathcal{D}_n^2=Var(S_n)=\sigma_{n1}^2+\cdots+\sigma_{nr_n}^2$
 		\newline Lindberg's condition is satisfied if and only if \newline(a) $S_n/\mathcal{D}_n \xrightarrow{D} N(0,1)$ \hspace{0,2cm}(b) $\frac{1}{\mathcal{D}_n^2}\max_{1\leq k\leq r_n}\sigma_{nk}^2\rightarrow0$ as $n\rightarrow \infty$
 	\end{itemize}
+	\clearpage
+
 	\item[*] Lyapunov condition
 	\begin{itemize}
 		\item $\{X_{nk}:k=1,\cdots, r_n\}$ : row-wise independent double array of r.v.'s with mean zero.
