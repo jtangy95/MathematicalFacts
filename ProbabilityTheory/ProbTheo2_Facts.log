@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.8.12)  9 NOV 2021 17:15
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.8.12)  11 NOV 2021 15:51
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -382,18 +382,18 @@ Package rerunfilecheck Info: File `ProbTheo2_Facts.out' has not changed.
 (rerunfilecheck)             Checksum: D75DE355F8CF378E6D7FD1094D2663AF;259.
  ) 
 Here is how much of TeX's memory you used:
- 9478 strings out of 478994
- 137676 string characters out of 5858184
+ 9481 strings out of 478994
+ 137697 string characters out of 5858184
  456078 words of memory out of 5000000
  26763 multiletter control sequences out of 15000+600000
  409325 words of font info for 49 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  71i,16n,74p,619b,536s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on /Users/changtaeyeong/Desktop/MathFacts/MathematicalFacts/ProbabilityTheory/ProbTheo2_Facts.pdf (15 pages, 204461 bytes).
+Output written on /Users/changtaeyeong/Desktop/MathFacts/MathematicalFacts/ProbabilityTheory/ProbTheo2_Facts.pdf (15 pages, 207243 bytes).
 PDF statistics:
- 212 PDF objects out of 1000 (max. 8388607)
- 178 compressed objects within 2 object streams
- 74 named destinations out of 1000 (max. 500000)
+ 215 PDF objects out of 1000 (max. 8388607)
+ 181 compressed objects within 2 object streams
+ 77 named destinations out of 1000 (max. 500000)
  22 words of extra memory for PDF output out of 10000 (max. 10000000)
 

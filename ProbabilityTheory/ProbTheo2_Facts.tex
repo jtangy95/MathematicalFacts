@@ -447,6 +447,7 @@
 	\begin{itemize}
 		\item If $\{X_n\}$ is a submartingale and $N$ is a stopping time with $P(N\leq K)=1$ for some $K\in \N$ then $$E(X_0)\leq E(X_N)\leq E(X_K) $$
 		\item[\rmk] Since $\{X_n\}$ is a submartingale, $E(X_0)\leq E(X_j)\leq E(X_K)$ whenever $0\leq j\leq K$ . This thm tells us that similar inequality still holds true when the index is random. 
+		\item[\sq] If $\{X_n\}$ is a martingale and $N$ is a stopping time with $P(N\leq K)=1$ for some $K\in \N$ then $$E(X_0)= E(X_N)= E(X_K) $$
 	\end{itemize}
 	\item Doob's inequality
 	\begin{itemize}
@@ -600,6 +601,7 @@
 	\item Inequality for unbounded stopping time
 	\begin{itemize}
 		\item If $\{X_n\}$ is uniformly integrable submartingale then for any stopping time $N$, we have \\$E(X_0)\leq E(X_N)\leq E(X_\infty)$ where $X_n\rightarrow X_\infty\;\,a.s.$
+		\item[\sq] If $\{X_n\}$ is uniformly integrable martingale then for any stopping time $N$, we have \\$E(X_0)= E(X_N)= E(X_\infty)$ where $X_n\rightarrow X_\infty\;\,a.s.$
 	\end{itemize}
 	\item Optional stopping thm
 	\begin{itemize}
@@ -632,5 +634,18 @@
 			\end{itemize}
 		\end{enumerate}
 	\end{itemize}
+	\item Assymmetric simple random walk
+	\begin{itemize}
+		\item Let $\{\xi_i\}_{i\in \N}$ be i.i.d. random seq. s.t. $P(\xi_1=1)=p$ and $P(\xi_1=-1)=q=1-p$ for some $0<p<1$ . $S_0=0$, $S_n=\xi_1+\cdots+\xi_n$ and $\F_n=\sigma(\xi_1, \cdots \xi_n)\foranyn$
+		\begin{enumerate}
+			\item For $\psi:\R \rightarrow \R$ defined by $\psi(x)=\big(\frac{1-p}{p}\big)^x$ , $\{\psi(S_n)\}$ is a martingale.
+			\item Define $T_{m}=\inf\{n\in \N\union\{0\} :S_n=m \}$ for $m\in \mathbb{Z}$ where $\inf(\phi)$ is interpreted as $\infty$ \\For any $ a,b\in \mathbb{Z}$ s.t. $a<0<b$ , we have $$P(T_a<T_b)=\frac{\psi(b)-\psi(0)}{\psi(b)-\psi(a)} $$
+			$p>q\Rightarrow T_b<\infty\;\,a.s.$ \quad,\quad $p<q\Rightarrow T_a<\infty\;\,a.s.$\quad,\quad   $p=q\Rightarrow T_a, T_b<\infty\;\,a.s.$
+			\item If $p>q$ ( $p>\frac{1}{2}$ ) then $P(\inf_n S_n\leq a)=P(T_a<\infty)=\big(\frac{1-p}{p}\big)^{-a}$ for any $a<0$ and $E[T_b]=\frac{b}{2p-1}$ for any $b>0$
+			\begin{itemize}
+				\item[\trick] Trick : For $|r|<1$ , $\sum_{n=1}^\infty nr^n$ converges to a finite number $r/(1-r)^2$ 
+			\end{itemize}
+		\end{enumerate}
+	\end{itemize} 
 \end{itemize}
 \end{document}
