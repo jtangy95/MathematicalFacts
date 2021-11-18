@@ -463,9 +463,14 @@
 	\end{itemize}
 	\item Doob's $L^p$ maximal inequality
 	\begin{itemize}
-		\item If $\{X_n\}_{n\in \N\union \{0\} }$ is a nonnegative submartingale, then for $1<p<\infty$ and \\ $\overline{X}_n=\max_{0\leq m \leq n}X_m$ , the inequality belows holds true. 
+		\item If $\{X_n\}_{n\in \N\union \{0\} }$ is a nonnegative submartingale, then for $1<p<\infty$ and \\ $\overline{X}_n=\max_{0\leq m \leq n}X_m$ , the inequality below holds true. 
 		$$
-			E\big(\overline{X}_n^p\big)\leq \Big(\frac{p}{p-1}\Big)^p E[X_n^p]
+		E\big(\overline{X}_n^p\big)\leq \Big(\frac{p}{p-1}\Big)^p E[X_n^p]
+		$$
+		\item[\sq] If $\{X_n\}_{n\in \N\union \{0\}}$ is a martingale then for $1<p<\infty$ and 
+		\\$|\overline{X}_n|=\max_{0\leq m\leq n}|X_m|$ , the inequality below holds true.
+		$$
+		E|\overline{X}_n|^p\leq \Big(\frac{p}{p-1}\Big)^p E|X_n|^p
 		$$
 		\begin{itemize}
 			\item[\trick] Lemma : If $X\geq 0$ then $E(X)=\int_0^\infty P(X>t)\, dt$
@@ -640,8 +645,11 @@
 		\begin{enumerate}
 			\item For $\psi:\R \rightarrow \R$ defined by $\psi(x)=\big(\frac{1-p}{p}\big)^x$ , $\{\psi(S_n)\}$ is a martingale.
 			\item Define $T_{m}=\inf\{n\in \N\union\{0\} :S_n=m \}$ for $m\in \mathbb{Z}$ where $\inf(\phi)$ is interpreted as $\infty$ \\For any $ a,b\in \mathbb{Z}$ s.t. $a<0<b$ , we have $$P(T_a<T_b)=\frac{\psi(b)-\psi(0)}{\psi(b)-\psi(a)} $$
-			$p>q\Rightarrow T_b<\infty\;\,a.s.$ \quad,\quad $p<q\Rightarrow T_a<\infty\;\,a.s.$\quad,\quad   $p=q\Rightarrow T_a, T_b<\infty\;\,a.s.$
-			\item If $p>q$ ( $p>\frac{1}{2}$ ) then $P(\inf_n S_n\leq a)=P(T_a<\infty)=\big(\frac{1-p}{p}\big)^{-a}$ for any $a<0$ and $E[T_b]=\frac{b}{2p-1}$ for any $b>0$
+			$p>q\Rightarrow T_b<\infty\;\,a.s.$ \quad,\quad $p<q\Rightarrow T_a<\infty\;\,a.s.$\quad,\quad   $p=q\Rightarrow T_a\, ,\, T_b<\infty\;\,a.s.$
+			\item If $p>q$ ( $p>\frac{1}{2}$ ) then 
+			\begin{align*}
+				&P(\inf_n S_n\leq a)=P(T_a<\infty)=\big(\frac{1-p}{p}\big)^{-a} \quad \forall \; a<0 \\ &E[T_b]=\frac{b}{2p-1}\quad \forall b>0
+			\end{align*}
 			\begin{itemize}
 				\item[\trick] Trick : For $|r|<1$ , $\sum_{n=1}^\infty nr^n$ converges to a finite number $r/(1-r)^2$ 
 			\end{itemize}
