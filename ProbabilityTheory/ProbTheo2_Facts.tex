@@ -402,6 +402,12 @@
 		\item Any submartingale $\{X_n\}$ can be written as $X_n=M_n+A_n$ where $\{M_n\}$ is a martingale and $\{A_n\}$ is a predictable increasing sequence with $A_0=0$. Also, this expression is unique in the sense that if $X_n=M_n'+A_n'$ is another expression then $M_n=M_n'$ and $A_n=A_n'\;\,a.s.$
 		\item[\rmk] The exact form of $M_n,\, A_n$ for given $X_n$ is $A_n=A_{n-1}+E[X_n|\F_{n-1}]-X_{n-1}\foranyn\;$ and $M_n=X_n-A_n \foranyn\cup\{0\}$ ( Since $A_0=0$, $A_n=\sum_{k=1}^n (E[X_k|\F_{k-1}]-X_{k-1})$ )
 	\end{itemize}
+	\item[*] Almost sure convergence on a restricted event
+	\begin{itemize}
+		\item Define ``$X_n\rightarrow X\;\,a.s.$ on $B$'' for measurable set $B$ as \\$P((X_n\rightarrow X)\intersect B)=P(B)$ or equivalently, $P((X_n\nrightarrow X)\intersect B)=0$
+		\item[\trick] Lemma : $X_n\rightarrow X\;\,a.s.$ on $B\;\Rightarrow\; X_n\rightarrow X\;\,a.s.$ on $A$ whenever $A\subset B$ 
+		\item[\trick] Lemma : $X_n\rightarrow X\;\,a.s.$ on $A_k \quad \forall\; k\in \N\;\Rightarrow\; X_n\rightarrow X\;\,a.s.$ on $\bigcup_{k\in \N} A_k$
+	\end{itemize}
 	\item Martingales with bounded increments either converge or oscillate between $\infty$ and $-\infty$
 	\begin{itemize}
 		\item Let $\{X_n\}$ be a martingale with $|X_n-X_{n-1}|\leq M<\infty\foranyn$ for some $M>0$. \\Define disjoint subsets $C,\,D\subset \Omega$ by 
@@ -410,10 +416,6 @@
 			D&=(\;\limsup X_n=\infty \;\text{and}\; \liminf X_n=-\infty \;)
 		\end{align*}
 		Then $P(C\union D)=1$
-		\begin{itemize}
-			\item[\trick] Define ``$X_n\rightarrow X\;\,a.s.$ on $B$'' for measurable set $B$ as $P((X_n\rightarrow X)\intersect B)=P(B)$ 
-			\item[\trick] Trick : $X_n\rightarrow X\;\,a.s.$ on $B\;\Rightarrow\; X_n\rightarrow X\;\,a.s.$ on $A$ whenever $A\subset B$ 
-		\end{itemize}
 	\end{itemize}
 	\item Conditional Borel-Cantelli second lemma
 	\begin{itemize}
@@ -639,7 +641,7 @@
 			\end{itemize}
 		\end{enumerate}
 	\end{itemize}
-	\item Assymmetric simple random walk
+	\item Asymmetric simple random walk
 	\begin{itemize}
 		\item Let $\{\xi_i\}_{i\in \N}$ be i.i.d. random seq. s.t. $P(\xi_1=1)=p$ and $P(\xi_1=-1)=q=1-p$ for some $0<p<1$ . $S_0=0$, $S_n=\xi_1+\cdots+\xi_n$ and $\F_n=\sigma(\xi_1, \cdots \xi_n)\foranyn$
 		\begin{enumerate}
@@ -655,5 +657,33 @@
 			\end{itemize}
 		\end{enumerate}
 	\end{itemize} 
+	\item Square integrable Martingales
+	\begin{itemize}
+		\item Suppose $\{X_n\}$ is a martingale with $X_0=0$ and $E[X_n^2]<\infty\foranyn$
+		\item Since $X_n^2$ is a submartingale, we can find $X_n^2=M_n+A_n$ which is a Doob's decomposition for $X_n^2$. Here, $A_n$ is called the increasing process associated with $X_n$
+		$$A_n=\sum_{k=1}^n E[X_k^2|\F_{k-1}]-X_{k-1}^2=\sum_{k=1}^n E[(X_k-X_{k-1})^2|\F_{k-1}]\quad \text{with}\quad A_0=0$$
+		\item Since $A_n$ is increasing, $A_\infty=\lim_n A_n=\sup_n A_n$ exists. 
+		\item $A_n$ can be though of as a path by path measurement of the variance at time $n$ and $A_\infty$ can be viewed as the total variance in the path.
+		\item $A_n$ is integrable and $E[X_n^2]=E[A_n]\foranyn$
+		\item Two results about boundedness 
+		$$E[\sup_n X_n^2]\leq 4E[A_\infty]\quad \text{and} \quad E[\sup_n|X_n|]\leq 3E[\sqrt{A_\infty}]$$
+		\item Two results about convergence
+		\begin{enumerate}
+			\item $X_n$ converges to a finite limit $a.s.$ on $(A_\infty<\infty)$
+			\begin{itemize}
+				\item[\trick] Trick : If $N$ is a stopping time , then $X_{N\wedge n}$ is a square integrable martingale and $A_{N\wedge n}$ is the increasing process associated with $X_{N\wedge n}$
+			\end{itemize}
+			\item If $f:\R\rightarrow \R$ be an increasing function with $f(t)\geq 1\; \forall\;t\in \R$\; and\; $\int_0^\infty 1/f^2(t)\,dt<\infty$ then $X_n/f(A_n)\rightarrow 0\;\,a.s.$ on $(A_\infty=\infty)$
+			\begin{itemize}
+				\item[\trick] Trick : For such function $f$ , we have $f(t)\nearrow \infty$ as $t\rightarrow \infty$
+				\item[\trick] Lemma : {[Kronecker's lemma]} If $0<a_n\nearrow\infty$ and $\sum_{n=1}^{\infty} \frac{1}{a_n}x_n$ converges \\ then $\frac{1}{a_n}\sum_{j=1}^nx_j \rightarrow 0 $ 
+			\end{itemize}
+		\end{enumerate}
+	\end{itemize}
+	\item Conditional Borel-Cantelli second lemma (2nd version)
+	\begin{itemize}
+		\item Suppose $B_n\in \F_n\foranyn$ and $\F_0=\{\phi, \Omega\}$ . Let $p_n=P(B_n|\F_{n-1})\foranyn$ . Then , $$ \frac{\sum_{m=1}^n I_{B_m}}{\sum_{m=1}^n p_m}\rightarrow 1 \;\,a.s. \quad \text{on}\quad \big(\sum_n p_n=\infty \big) $$
+		\item[\rmk] This extends the original Borel-Cantelli second lemma . 
+	\end{itemize}
 \end{itemize}
 \end{document}
