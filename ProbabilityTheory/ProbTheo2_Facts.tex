@@ -685,5 +685,63 @@
 		\item Suppose $B_n\in \F_n\foranyn$ and $\F_0=\{\phi, \Omega\}$ . Let $p_n=P(B_n|\F_{n-1})\foranyn$ . Then , $$ \frac{\sum_{m=1}^n I_{B_m}}{\sum_{m=1}^n p_m}\rightarrow 1 \;\,a.s. \quad \text{on}\quad \big(\sum_n p_n=\infty \big) $$
 		\item[\rmk] This extends the original Borel-Cantelli second lemma . 
 	\end{itemize}
+\clearpage
+
+	\item Buckholder's inequality
+	\begin{itemize}
+		\item Suppose $\{S_i\}_{0\leq i \leq n}$ is a martingale with $S_0=0$ . Let $X_i = S_i - S_{i-1}$ be a `martingale difference' . Then for $1<p<\infty$ , $\exist c_1$ and $c_2$ depending only on $p$ such that
+		$$c_1\cdot E\big|\sum_{i=1}^n X_i^2 \big|^{\frac{p}{2}}\leq E|S_n|^p\leq c_2\cdot E\big|\sum_{i=1}^n X_i^2 \big|^{\frac{p}{2}}$$
+		In fact, $c_1 = (18 p^{1/2}q)^{-p}$ and $c_2 = (18pq^{1/2})p$ where $q$ is Holder conjugate of $p$
+		\item[\rmk] We can handle martingale with squared sum of martingale difference sequences.
+	\end{itemize}
+	\item[\sq] Marcinkiewicz-Zygmund inequality
+	\begin{itemize}
+		\item Suppose $X_i$'s are i.i.d. random variables with $E[X_1]=0$ and $E|X_1|^P<\infty$ for some $p>1$ . Let $S_n=X_1+\cdots +X_n$ ( $S_n$ is a martingale w.r.t. $\F_n=\sigma(X_1, \cdots, X_n)$ ) . Then we have $$\|S_n\|_p\leq 18q^{1/2}p\sqrt{n}\|X_1\|_p $$ with $q$ being Holder conjugate of $p$
+	\end{itemize}
+	\item Uniform integrability of moments of sample mean
+	\begin{itemize}
+		\item If $\{X_n\}$ is a seq. of i.i.d. random variables with mean $0$ and variance $1$ and $E|X_1|<\infty$ for some $r>1$ then $$\bigg\{\bigg|\frac{1}{\sqrt{n}}\sum_{i=1}^n X_i \bigg|^r  \bigg\}_{n\in \N} $$ is uniformly integrable.
+		\item[\rmk] Combining this thm with CLT and Vitalli lemma, we can obtain that under the same assumption, $$E\bigg|\frac{1}{\sqrt{n}}\sum_{i=1}^n X_i \bigg|^r\rightarrow E|Z|^r $$ where $Z\sim N(0,1)$
+	\end{itemize} 
+
 \end{itemize}
+\section{Infinitely Divisible Distribution}
+\begin{itemize}
+	\item[*] Definition of infinitely divisible distributions
+	\begin{itemize}
+		\item A distribution $F$ is called inifinitely divisble if one of these equivalent conditions are satisfied.
+		\begin{enumerate}
+			\item For each $n\in \N$, $\exist$ a distribution $F_n$ s.t. $F= F_n * F_n * \cdots * F_n$ where $*$ denotes the convolution
+			\item There is a probability space $(\Omega, \F, P)$ , a random variable $X$ , and a double array $\{X_{nk} : k=1, \cdots n\}$ such that $$ X\sim F \quad \text{and} \quad X_{nk}\overset{i.i.d.}{\sim} F_n \quad \text{with} \quad X\overset{D}{=}X_{n1}+\cdots+X_{nn}\quad \foranyn$$
+			\item For each $n\in \N$ , $\exist$ a distribution $F_n$ s.t. $$\psi_F = (\psi_{F_n})^n$$ where $\psi_G$ denotes the characteristic function of the distribution $G$
+		\end{enumerate}
+		
+		\item We will say a characteristic function $\psi$ is infinitely divisible if it is a characteristic function of inifinite divisble distribution $F$
+		
+	\end{itemize}
+	\item For any characteristic function $\psi$ , we have $$1-|\psi(2t)|^2\leq 4(1-|\psi(t)|^2) \quad \forall \; t$$
+	\item If $\psi$ is inifinitely divisble characteristic function then $\psi(t)\neq 0$ for any $t\in \R$
+	\item Canonical representation of infinitely divisble characteristic function
+	\begin{itemize}
+		\item Let $\mu$ be a finite measure in $(\R, \B(\R))$ . Define $\psi$ as $$\psi(t) = \exp \bigg( \int_{-\infty}^\infty \frac{e^{itx}-1-itx}{x}\, d\mu(x) \bigg) $$ Then $\psi$ is a characteristic function of an infinite divisible distribution with mean $0$ and variance $\mu(\R)$ .
+		\item This is called canonical representation of $\psi$ and $\mu$ is called a canonical measure.
+	\end{itemize}
+	\item condition $\mathcal{R}$ of a row-wise independent double array
+	\begin{itemize}
+		\item A row-wise independent double array $\{X_{nk} : 1\leq k\leq r_n\}_n$ is said to satisfy condition $\mathcal{R}$ if 
+		\begin{enumerate}
+			\item $E(X_{nk})=0 , E[X_{nk}^2]=\sigma_{nk}^2<\infty , s_n^2 = \sum_{k=1}^{r_n} \sigma_{nk}^2 >0$
+			\item $\sup_n s_n^2 <\infty$
+			\item $\max_{1\leq k\leq r_n} \sigma_{nk}^2 \rightarrow 0$ 
+		\end{enumerate}
+	\end{itemize}
+	\item If $X$ and $Y$ are independent and $E[(X+Y)^2]<\infty$ then $E[X^2]+E[Y^2]<\infty$
+	\item Every inifinite divisble distribution $F$ with mean $0$ and finite variance $\sigma^2$ is the limit distribution of $S_n = X_{n1}+\cdots + X_{nr_n}$ for some row-wise independent double array $\{X_{nk}\}$ satisfying \\condition $\mathcal{R}$ . In fact, if double array $\{X_{nk} : k=1, \cdots, n\}_n$ is associated with infinite divisble distribution $F$ then it satisfies stronger condition than condition $\mathcal{R}$
+	\item Infinite divisible distribution has a canonical representation .
+	\begin{itemize}
+		\item If $F$ is the limit distribution of $S_n = X_{n1}+\cdots X_{nn}$ for some row-wise independent double array $\{X_{nk} : k=1, \cdots, n\}$ satisfying condition $\mathcal{R}$ then $F$ has the characteristic function $\psi$ with canonical representation 
+		\item By the theorem above, if $F$ is an infinite divisble distribution with mean $0$ and finite variance $\sigma^2$ then it has canonical representation.
+	\end{itemize} 
+\end{itemize}
+
 \end{document}
