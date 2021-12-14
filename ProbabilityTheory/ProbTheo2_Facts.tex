@@ -691,7 +691,7 @@
 	\begin{itemize}
 		\item Suppose $\{S_i\}_{0\leq i \leq n}$ is a martingale with $S_0=0$ . Let $X_i = S_i - S_{i-1}$ be a `martingale difference' . Then for $1<p<\infty$ , $\exist c_1$ and $c_2$ depending only on $p$ such that
 		$$c_1\cdot E\big|\sum_{i=1}^n X_i^2 \big|^{\frac{p}{2}}\leq E|S_n|^p\leq c_2\cdot E\big|\sum_{i=1}^n X_i^2 \big|^{\frac{p}{2}}$$
-		In fact, $c_1 = (18 p^{1/2}q)^{-p}$ and $c_2 = (18pq^{1/2})p$ where $q$ is Holder conjugate of $p$
+		In fact, $c_1 = (18 p^{1/2}q)^{-p}$ and $c_2 = (18pq^{1/2})^p$ where $q$ is Holder conjugate of $p$
 		\item[\rmk] We can handle martingale with squared sum of martingale difference sequences.
 	\end{itemize}
 	\item[\sq] Marcinkiewicz-Zygmund inequality
@@ -723,7 +723,7 @@
 	\item If $\psi$ is inifinitely divisble characteristic function then $\psi(t)\neq 0$ for any $t\in \R$
 	\item Canonical representation of infinitely divisble characteristic function
 	\begin{itemize}
-		\item Let $\mu$ be a finite measure in $(\R, \B(\R))$ . Define $\psi$ as $$\psi(t) = \exp \bigg( \int_{-\infty}^\infty \frac{e^{itx}-1-itx}{x}\, d\mu(x) \bigg) $$ Then $\psi$ is a characteristic function of an infinite divisible distribution with mean $0$ and variance $\mu(\R)$ .
+		\item Let $\mu$ be a finite measure in $(\R, \B(\R))$ . Define $\psi$ as $$\psi(t) = \exp \bigg( \int_{-\infty}^\infty \frac{e^{itx}-1-itx}{x^2}\, d\mu(x) \bigg) $$ Then $\psi$ is a characteristic function of an infinite divisible distribution with mean $0$ and variance $\mu(\R)$ .
 		\item This is called canonical representation of $\psi$ and $\mu$ is called a canonical measure.
 	\end{itemize}
 	\item condition $\mathcal{R}$ of a row-wise independent double array
