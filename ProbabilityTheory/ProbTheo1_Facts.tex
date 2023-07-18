@@ -455,9 +455,11 @@
 	\end{itemize}
 	\item[*] Tightness of seq. of distribution functions
 	\begin{itemize}
-		\item A seq. of distribution functions $\{F_n\}$ is called tight if \\ $\forall \epsilon>0$, $\exists M_\epsilon>0$ s.t. $limsup_n \hspace{0.1cm}1-F_n(M_\epsilon)+F_n(-M_\epsilon)\leq \epsilon$
+		\item A seq. of distribution functions $\{F_n\}$ is called tight if \\ $\forall \epsilon>0$, $\exists M_\epsilon>0$ s.t. $limsup_n \hspace{0.1cm}1-F_n(M_\epsilon)+F_n(-M_\epsilon) \leq \epsilon$
 	\end{itemize}
-	\item For a seq. of distribution functions $\{F_n\}$, every subsequential limit is a distribution function iff $\{F_n\}$ is tight
+	\item For a seq. of distribution functions $\{F_n\}$, every subsequential limit is a distribution function iff $\{F_n\}$ is tight.
+	\item Let $X_n \sim F_n \;\, \forall\;\, n\in \mathbb{N}$. If $X_n = O_p(1)$ then $\{F_n\}$ is tight.
+	\item If $X_n = O_p(1)$ then there is a subsequence $\{X_{n_k}\}$ of $\{X_n\}$ and a random variable $X$ such that $X_{n_k} \xrightarrow{D} X$.
 \end{itemize}
 \bigskip
 
